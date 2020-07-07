@@ -1,0 +1,15 @@
+
+@media (min-width: 769px){
+	ul {
+		margin-top:41px;
+	}
+	article, main>header { max-width:750px !important; margin: 0 auto !important;}
+	
+}
+@media (max-width: 768px){
+	/* All articles rules */
+	main { margin: 0 20px !important;}
+	article {margin-left:20px;}
+}
+
+

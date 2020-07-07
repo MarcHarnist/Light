@@ -1,0 +1,46 @@
+.lightColor {background-color: rgba(47,100,148,.5)!important;}
+body {background-color:#f8f9fa!important;}
+
+header, footer {background:lightgrey;}
+
+/* First header rules */
+body>header figure img {margin-top:13px; margin-left:3px;}
+body>header a, h1 {margin-top:17px !important;}
+
+h2, h3, h4, h5, h6, p {background-color:#f8f9fa!important; color: #6c757d!important;}
+
+a, header a:hover, footer a:hover {color: rgba(47,100,148,.5)!important;}
+
+/* LOGO MyDataBall special param */
+header figure img {margin-top:13px; margin-left:13px;}
+header h1 {margin-top:30px !important;}
+
+article { margin-left: 20px; background-color: #f8f9fa!important;}
+
+main {min-height:400px; background-color: #f8f9fa!important;}
+
+article h3 {font-style: italic; font-size:1.5em;}
+
+/* First view header rules */
+main>header { margin-top: 20px !important;}
+
+.row { margin: 0; padding: 0;}
+
+/* modal exists in Bootstrap framework ! */
+.modalLightCMS { padding:25px; background-color:lightgreen; } /* modal  ~  popup pour messages dans contrôleur */
+
+.textLightColor, header a, footer a {color: #fff!important;}
+
+.text-success {color: #94c11f!important;}
+
+footer i {font-weight:lighter;}
+
+
+footer { border-top: 1px solid white !important; padding: 20px 0 50px 0; font-style:italic !important;}
+footer p, footer ul { margin:15px !important;}
+address { 
+	margin:0 30px !important;
+	font-weight:lighter !important;
+	font-style:italic !important;
+	color:#6c757d!important;
+}
