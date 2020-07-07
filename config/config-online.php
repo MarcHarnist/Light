@@ -7,7 +7,7 @@ define( 'DB_NAME', 'marcharnssmarc' );
 define( 'DB_USER', 'marcharnssmarc' );
 
 /** Mot de passe de la base de données MySQL. */
-define( 'DB_PASSWORD', 'Bumiere753' );
+define( 'DB_PASSWORD', '***' );
 
 /** Adresse de l’hébergement MySQL. */
 define( 'DB_HOST', 'marcharnssmarc.mysql.db' );
