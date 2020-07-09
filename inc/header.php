@@ -30,8 +30,8 @@
 				<a href="<?=$website->website_url;?>">
 					<img
 						class="rounded" 
-						src="img/logo-mydataball-blanc.png" 
-						alt="Logo: Mydataball, img/logo.png"
+						src="img/logo.png" 
+						alt="Logo, img/logo.png"
 						height="60">
 				</a>
 			</figure>
