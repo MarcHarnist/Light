@@ -27,12 +27,16 @@
 	<body>
 		<header class="row m-0 p-0 w-100">
 			<figure class="col-11 col-lg-4">
+				<h1>
 				<a href="<?=$website->website_url;?>">
 					<img
 						class="rounded" 
 						src="img/logo.png" 
 						alt="Logo, img/logo.png"
 						height="60">
+				
+				
+				<?=WEBSITE_NAME?></h1>
 				</a>
 			</figure>
 			<ul class="nav col-md-12 col-lg-8 h6 justify-content-end"><!-- usefull to W3C-validator -->
