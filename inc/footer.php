@@ -28,8 +28,8 @@
 						<?php
 						}
 					?>
-			</p>
-				<address>Propulsé par <a target="_blank" href="http://marcharnist.fr/light" title="CMS Light">"Light"</a>, CMS exigeant peu de ressources créé par <a target="_blank" href="http://marcharnist.fr" title="L'auteur"><?=WEBMASTER;?></a>.</address>
+
+			</p><address>Propulsé par <a target="_blank" href="http://marcharnist.fr/light" title="CMS Light">"Light"</a>, CMS exigeant peu de ressources créé par <a target="_blank" href="http://marcharnist.fr" title="L'auteur"><?=WEBMASTER;?></a>.</address>
 
 			<?php
 				$ok = $ok_2 = $ko = $ko_2 = "";
