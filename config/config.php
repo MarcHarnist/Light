@@ -20,4 +20,4 @@ define('OWNER_MAIL', 'harnist.marc@gmail.com');
 define('USE_LOCAL_SERVER', 'NO');
 define('TABLE_CLIENT', 'light_clients');
 define('TABLE_MEMBER', 'light_members');
-define('TABLE_PAGES_', 'light_pages');
+define('TABLE_PAGES', 'light_pages');
