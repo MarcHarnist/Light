@@ -8,7 +8,7 @@
         /*************************************************/
         /** CREATION: 19/07/2018                        **/
         /*************************************************/
-        /** UPDATED:  18/06/2020                        **/
+        /** UPDATED:  10/07/2020                        **/
         /*************************************************/
         /** FILE USING THIS CLASS: root/index.php       **/
         /*************************************************/
@@ -19,6 +19,7 @@ class Page extends Methods {
 
   //Attributs
   private $pageName; // Nom de la page. Exemple : "accueil"
+  private $spaceName;//Space: client, public, admin or private, member...
   private $title; // Titre de la page qui s'affiche dans l'onglet du navigateur
   private $fileName; // pageName.php Exemple: accueil.php
   private $controllerPath;  // Chemin du contrôleur. Exemple: controller/accueil.php
@@ -33,6 +34,7 @@ class Page extends Methods {
     // Constructeur
     public function __construct(){
 		$this->setPageName();
+		$this->setSpaceName();
 		$this->setTitle();
 		$this->setFileName();
 		$this->setControllerPath();
@@ -52,6 +54,15 @@ class Page extends Methods {
 
 		//Erase false cars. 
 		$this->pageName = $this->checkFalseCars($pageName);//Example: checkFalseCars(pageName.php) = pageName
+	}
+	private function setSpaceName($spaceName = "public"){
+		
+		//Get the value of "space" in the url after "space=" and assign it to $spaceName
+		$spaceName = !empty($_GET["space"]) ? htmlspecialchars($_GET['space']) : $spaceName;
+
+		//Erase false cars. 
+		$this->spaceName = $this->checkFalseCars($spaceName);//Example: checkFalseCars(spaceName.php) = spaceName
+		
 	}
 	/** Function setTitle()
 	*   Set the title in the html bloc "<head>" in root/inc/header.php and in the url.
@@ -100,6 +111,9 @@ class Page extends Methods {
 	*/
     public function getPageName(){
 		return $this->pageName;
+    }
+    public function getSpaceName(){
+		return $this->spaceName;
     }
 	public function getTitle(){
 		return $this->title;
