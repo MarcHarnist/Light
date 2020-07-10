@@ -47,24 +47,8 @@ class Member {
     }
   }
   
-  // GETTERS //
-  public function id()
-  {
-    return $this->_id;
-  }
-  public function name()
-  {
-    return $this->_name;
-  } 
-  public function password()
-  {
-    return $this->_password;
-  }
-  public function level()
-  {
-	  return $this->_level;
-  }
-  
+
+//SETTERS //
   // Rajout de Marc H. 05/08/17 avec fierté !
   public function nameValide() // Input name cannot be empty
   {
@@ -104,5 +88,32 @@ class Member {
 	$level = (int) $level;
 	  
       $this->_level = $level;
+  }
+
+
+  // GETTERS //
+  public function id()
+  {
+    return $this->_id;
+  }
+  public function name()
+  {
+    return $this->_name;
+  } 
+  public function password()
+  {
+    return $this->_password;
+  }
+  public function level()
+  {
+	  return $this->_level;
+  }
+  public function getLevel()
+  {
+	  return $this->_level;
+  }
+  
+  public function getName(){
+	  return $this->_name;
   }
 }//Close class Member

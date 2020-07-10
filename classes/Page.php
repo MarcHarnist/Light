@@ -86,6 +86,9 @@ class Page extends Methods {
 		
 		// If a file controller exists with this->fileName, define the path of the file
 		if(is_file("controllers/" . $this->fileName)) $this->controllerPath = "controllers/" . $this->fileName;
+		
+		//Check if a spaceName "client" exists
+		if($this->getSpaceName() === "client") $this->controllerPath = "controllers/". $this->getSpaceName() . "/" . $this->fileName;
 	}
 	private function setRouterPath(){
 		
@@ -132,6 +135,9 @@ class Page extends Methods {
     }
 	public function getControllerPath(){
 		return $this->controllerPath;
+	}
+	public function getRouterPath(){
+		return $this->routerPath;
 	}
 	public function getViewPath(){
 		return $this->viewPath;

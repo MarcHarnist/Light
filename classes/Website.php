@@ -25,8 +25,12 @@
 *    sessionClient()........................line 105
 */
 class Website {
+    // DB TABLES (inutile de créer notebook_members)
+    // const MAX_SIZE = 10000000; // Taille max en octets du fichier
+    // const WIDTH_MAX = 3000;    // Largeur max de l'image en pixels
+    // const HEIGHT_MAX = 2000;   // Hauteur max de l'image en pixels
+	// const LEVEL = 100; // Niveau par défaut des utilisateurs
 
-	//ATTRIBUTES
     public $website_url;
     public $page_url;
     public $file_url;

@@ -66,6 +66,10 @@ class Client {
   {
     return $this->_name;
   } 
+  public function getName()
+  {
+    return $this->_name;
+  } 
   public function firstName()
   {
     return $this->_firstName;
