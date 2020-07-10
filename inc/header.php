@@ -36,8 +36,10 @@
 						height="60">
 				
 				
-				<?=WEBSITE_NAME?></h1>
 				</a>
+				<?=WEBSITE_NAME?>
+				<span class="subtitle"><?=SUBTITLE?></span>
+				</h1>
 			</figure>
 			<ul class="nav col-md-12 col-lg-8 h6 justify-content-end"><!-- usefull to W3C-validator -->
 				<li class="nav-item">
