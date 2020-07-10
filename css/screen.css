@@ -1,7 +1,7 @@
 
 @media (min-width: 769px){
-	ul {
-		margin-top:41px;
+	body>header>ul {
+		margin-top: 24px;
 	}
 	article, main>header { max-width:750px !important; margin: 0 auto !important;}
 	
