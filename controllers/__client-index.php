@@ -1,17 +1,22 @@
 <?php
 /**          Contrôleur __client-index
-*               Marc L. Harnist
-*                   28/08/2018
+*   Theme
+*   Client liste updating by the webmaster or website owner only
+*   Author:   Marc L. Harnist
+*   Creation : 2018/08/28
+*   Updating : 2020/07/10
 *
-*   MAJ:
-*   Autorisation limitée au webmaster
 */ 
+//Verify member permissions to be here
 $website->membersPermissions(1, $member);
 
-	$count=1;
-	$ancre=0;
-	
-	$database = new Database;
-	$datas = $database->read_table(TABLE_CLIENT);//TABLE_CLIENT: see config/config.php
+$ancre=0;//Anchor to com back at the right line
+$count=1;//Give a number to the anchor
+
+//DB connection
+$database = new Database;
+
+//Get all pages 
+$datas = $database->read_table(TABLE_CLIENT);//TABLE_CLIENT: see config/config.php
 
 

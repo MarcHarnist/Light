@@ -10,3 +10,4 @@ $read = new Database;	// POO! $lire = array() qui contient toute la table des pa
 	$pages = $read->getPagesByCategories($category, '', 300);
 	// Méthode qui liste les catégories existantes dans les pages
 	//     Paratmetres: catégorie, page (exemple: accueil), nombres de caractères pour l'extrait
+$pages= $pages;

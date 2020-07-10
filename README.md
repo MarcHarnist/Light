@@ -4,7 +4,16 @@
 				
 				Marc L. Harnist
 				26/05/2020
- 
+
+# Travaux en cours
+## Controllers / public, client, member
+Création de trois espaces
+ - public
+ - clients
+ - member
+pour créer trois rooters
+
+
 ## Idées d'évolution
 Créer un rooter pour les controleurs: beaucoup de contrôleurs font la même chose !
 - vérification des droits de l'utilisateur de lire ou d'écrire dans la page
