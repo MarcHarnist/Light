@@ -23,6 +23,7 @@ class Page extends Methods {
   private $title; // Titre de la page qui s'affiche dans l'onglet du navigateur
   private $fileName; // pageName.php Exemple: accueil.php
   private $controllerPath;  // Chemin du contrôleur. Exemple: controller/accueil.php
+  private $routerPath;//Path of router. Example: member, client, public, 
   private $viewPath;        // Chemin de la vue. Exemple: view/accueil.php
   private $cssLink; // Chemin de la feuille de style pour cette page si elle existe
   private $headerPath; // Chemin de l'en-tête de la page 
@@ -38,6 +39,7 @@ class Page extends Methods {
 		$this->setTitle();
 		$this->setFileName();
 		$this->setControllerPath();
+		$this->setRouterPath();
 		$this->setViewPath();
 		$this->setCssLink();
 		$this->setHeaderPath();
@@ -84,6 +86,13 @@ class Page extends Methods {
 		
 		// If a file controller exists with this->fileName, define the path of the file
 		if(is_file("controllers/" . $this->fileName)) $this->controllerPath = "controllers/" . $this->fileName;
+	}
+	private function setRouterPath(){
+		
+		$this->routerPath = $this->getSpaceName() . ".php"; //Add extension
+		
+		// If a file router exists with this $routerPath, define the path of the file
+		if(is_file($this->getSpaceName())) $this->routerPath = $this->getSpaceName(). '.php';
 	}
 	private function setViewPath($viewPath =  "view/vue-par-defaut.php"){
 		$this->viewPath = $viewPath; //View by default

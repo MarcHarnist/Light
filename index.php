@@ -14,10 +14,13 @@ $messages = [ "configImport"  => '<p>$models["config"] non trouvé.</p>', //conf
 //MODELS
 file_exists($models["config"])? require($models["config"]):exit($messages["configImport"]);//Import all config files
 file_exists($models["classes"])? require($models["classes"]):exit($messages["classesUpload"]);//Upload all classes
-$website = new Website; //Website = config file. (To do : Remove and use models/config.php to ignore in Git)
+$website = new Website; //Website (Use more models than Website functions)
 $client  = $website::sessionClient();//$_Session['client'] avoid to create object $client.
 $member  = $website::session();//$_Session['member'] avoid to create object $member.
 $page    = new Page; //Use method "Get" to get page name and require controler and view with this name
+
+//ROUTERS
+file_exists($page->getRouterPath())? include_once $page->getRouterPath():exit($page->getRouterPath().' existe?');
 
 //CONTROLERS
 //Import controler if exists for this page name or exit an display an error message

@@ -6,12 +6,17 @@
 				26/05/2020
 
 # Travaux en cours
+ - Voir la page "bac"
+ 
 ## Controllers / public, client, member
 Création de trois espaces
  - public
  - clients
  - member
 pour créer trois rooters
+
+Class page
+Add attribute "space" with setter ($GET['space']) and getter
 
 
 ## Idées d'évolution
