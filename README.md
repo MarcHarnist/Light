@@ -20,6 +20,8 @@ Il y a donc trois espaces pour l'instant: public, client et membre
 
 
 #Last update
+New controller bac but not enought strong to stop user under level 2. It's reserved to webmaster with right level = 1 but this page open with right level 2. It work for config-file-read.
+
 File root/controller/page-from-page-index.php line 12: add a new line of code: the title of the new or other category, received from the database, is sent in the bloc html <head><title> with the method $page->setTitle($page_en_cours_de_lecture['title']);
 
 # Light
