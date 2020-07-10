@@ -13,7 +13,7 @@
 		  ?>
 		  <p>Vous êtes connecté. Votre niveau: <?=$level;?></p>
 		  <?php
-		  if(isset($member) && $member->level <= 2){
+		  if(isset($member) && $member->level < 3){
 			?>
 			<ul>
 				<li>Clients
@@ -37,21 +37,24 @@
 				</li>
 			  <?php
 		  }
-		  if(isset($member) && $member->level <= 2){
+		  if(isset($member) && $member->level < 2){
 			?>
+				<li>Config
+					<ul>
+					  <li><a href="index.php?page=config-file-read">Modifier la configuration du site</a></li>
+					</ul>
+				</li>
+				<li>Bac à sable
+					<ul>
+					  <li><a href="<?= $website->page_url;?>bac">Travaux de développement en cours</a></li>
+					</ul>
+				</li>
 			  <li>Membres
 				<ul>
 				  <li><a href="<?= $website->page_url;?>__member-register">Ajouter un membre</a></li>
 				  <li><a href="<?= $website->page_url;?>__member-index">Modifier les membres</a></li>
 				</ul>
 			  </li>
-			  
-		      <li class="bg-info p-3"><strong>Travaux en cours</strong>
-				<ul>
-					<li><a class="text-white" href="<?= $website->page_url;?>install">Install.php !</a> <i>Création automatique de tables dans la db : travaux du 11/06/2020 pour la création rapide de sites web comme Wordpress.</i></li>
-				</ul>
-			  </li>
-		
 			  <li>Base de données
 				  <ul>
 					<li><a href="<?= $website->page_url;?>__sql-index">Sql index</a></li>

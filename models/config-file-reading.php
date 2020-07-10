@@ -146,9 +146,9 @@ $originalCodeWithPre = "<pre>" . $originalCode . "</pre>";
 <tr>
 			<td class="text-center"><?=$key?></td>
 			<td><?=$constant[0]?></td>
-			<td><input class="btn" type="text"
+			<td><input class="btn text-white" type="text"
 				name="<?=$constant[0]?>" value="<?=$constant[1]?>"></td>
-			<td><input class="btn" type="text"
+			<td><input class="btn text-white" type="text"
 				name="<?=$constant[0]?>/comment" 
 				value="<?=$constant[2]?>"></td></tr>
 	<?php
