@@ -11,7 +11,6 @@
 *       "modelsconfig-file-reading-short-complete.php"
 *       at line 75 to 80
 **/
-
 define('DOMAIN', 'light');//com
 define('WEBSITE_NAME', 'Light');
 define('SUBTITLE', 'Un CMS utilisant peu de ressources !');
