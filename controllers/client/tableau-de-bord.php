@@ -20,4 +20,17 @@
 	Désolé, vous n'avez-pas les droits nécéssaires pour lire cette page. Contactez le webmaster pour demander plus de droits d'accès. */
 	
 //Si la variable $client n'est pas null on vérifie ses droits pour afficher la page sinon on redirige à la page "acces-limité"
-$client !== Null?$website->clientsPermissions(5, $client):header('Location: ' . $website->redirection('acces-limite'));// Niveau 5 = client.
+if(isset($website))
+{
+	if(isset($client))
+	{
+		$website->clientsPermissions(5, $client);
+	}
+	else
+		header('Location: ' . $website->redirection('acces-limite'));// Niveau 5 = client.
+}
+
+?>
+<article style="margin:50px">
+<h3>Vous êtes bien arrivé au nouvel espace client</h3>
+</article>
