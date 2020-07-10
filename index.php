@@ -3,6 +3,12 @@
 *   Author  : Marc Harnist
 *   Date    : 27/08/2018
 *   MVC-OOP : all files imported here (classes, controlers, models, header, footer)
+*  
+*   Idea
+*   Create autonoms plugins with an index.php, view repertory, controller repertory
+*   models repertory, img repertory, css repertory...
+*
+*   The rooters here, line 29, require this plugins...
 */
 session_start(); // Start a session for members and clients spaces
 ini_set('display_errors',1); //Start Ovh php errors system
@@ -20,7 +26,7 @@ $member  = $website::session();//$_Session['member'] avoid to create object $mem
 $page    = new Page; //Use method "Get" to get page name and require controler and view with this name
 
 //ROUTERS
-file_exists($page->getRouterPath())? include_once $page->getRouterPath():exit($page->getRouterPath().' existe?');
+if(file_exists($page->getRouterPath())) require($page->getRouterPath());//require the rooter if this exists
 
 //CONTROLERS
 //Import controler if exists for this page name or exit an display an error message
