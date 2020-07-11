@@ -25,3 +25,4 @@ else
 	// We are on localhost on PC
 	file_exists($config_localhost)?require($config_localhost):print("<p>Fichier $config_localhost introuvable.</p>");
 }
+
