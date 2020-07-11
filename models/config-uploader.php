@@ -18,7 +18,7 @@ file_exists($config)?require($config):print("<p>Fichier $config introuvable.</p>
 
 if(isset($_SERVER['SCRIPT_URI'])){ //= online
 	// Online configuration
-	file_exists($config_online)?require($config_online):print("<p>Fichier $config_online introuvable.</p>");
+	file_exists($config_online)?require($config_online):print("<p>Fichier $config_online introuvable</p><p>Message du fichier ". __FILE__ . " ligne "  . __LINE__ . ". <a href=\"http://marcharnist.fr/notebook/index.php?page=contact\">Merci de me le signaler...</a></p>");
 }
 else
 { 
