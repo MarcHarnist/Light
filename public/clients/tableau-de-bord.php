@@ -29,8 +29,3 @@ if(isset($website))
 	else
 		header('Location: ' . $website->redirection('acces-limite'));// Niveau 5 = client.
 }
-
-?>
-<article style="margin:50px">
-<h3>Tableau de bord des clients</h3>
-</article>
