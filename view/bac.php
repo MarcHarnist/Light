@@ -21,9 +21,13 @@
   </header>
   <section class="col-lg-12 ">
     <h3 class="h5"><i>Baccasable</i></h3>
-	<p>Travaux en cours: sauvegarde des commentaires du fichier root/config/config.php<br>
+    <h4>Travaux en cours</h4>
+    <ul>
+    <li>Sauvegarde des commentaires du fichier root/config/config.php<br>
 	Fichier modifié: <strong><u><big>models</big></u></strong>/config-file-read.php line ~ 73<br>
 	<a href="index.php?page=config-file-read"><u>Page html qui affichera le résultat.</u></a>
+  </li>
+  <li><a href="index.php?space=client&page=tableau-de-bord">Tableau de bord des clients.</a></li>
 
   </section>
 </article>

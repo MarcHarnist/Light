@@ -2,11 +2,12 @@
  
 				README
 				
-				Marc L. Harnist
-				26/05/2020
+Marc L. Harnist
+Date: 2020/05/26
 
-# Travaux en cours
- - Voir la page "bac"
+# Work in process
+Testing router "client" : index.php?space=client&page=tableau-de-bord
+Work repport: index.php?page=bac
  
 ## Controllers / public, client, member
 Création de trois espaces
