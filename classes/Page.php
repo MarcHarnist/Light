@@ -88,7 +88,7 @@ class Page extends Methods {
 		if(is_file("controllers/" . $this->fileName)) $this->controllerPath = "controllers/" . $this->fileName;
 		
 		//Check if a spaceName "client" exists
-		if($this->getSpaceName() === "client") $this->controllerPath = "public/". $this->getSpaceName() . "/" . $this->fileName;
+		if($this->getSpaceName() === "clients") $this->controllerPath = "public/". $this->getSpaceName() . "/" . $this->fileName;
 	}
 	private function setRouterPath(){
 		
@@ -103,9 +103,15 @@ class Page extends Methods {
 		//If view exists define PAGE (real path) path of this file in view
 		if(is_file("view/" . $this->fileName)) $this->viewPath =  "view/" . $this->fileName;
 		
+		/** TO DO ************************************************************************************************************
+		*  This code below must be upgraded : get the plugins registered in config.php and get them here bellow.
+		*  Bad practice : write here a fixed value "client" in a class !
+		*/
+		
 		//Check if a spaceName "client" exists
-		if($this->getSpaceName() === "client") $this->viewPath = "public/". $this->getSpaceName() . "/view-" . $this->fileName;
+		if($this->getSpaceName() === "clients") $this->viewPath = "public/". $this->getSpaceName() . "/view-" . $this->fileName;
 
+		/* TO DO END ***********************************************************************************************************/
 	}
 	public function setCssLink(){
 		$this->cssLink = $this->cssLink($this->pageName); //Create a css link in head for this page with class "Methods" (see extends)
