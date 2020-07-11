@@ -10,6 +10,7 @@
 *
 *   The rooters here, line 29, require this plugins...
 */
+
 session_start(); // Start a session for members and clients spaces
 ini_set('display_errors',1); //Start Ovh php errors system
 
