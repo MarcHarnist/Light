@@ -30,7 +30,7 @@ if(file_exists($page->getRouterPath())) require($page->getRouterPath());//requir
 
 //CONTROLERS
 //Import controler if exists for this page name or exit an display an error message
-file_exists($page->getControllerPath())? include_once $page->getControllerPath():exit($page->getControllerPath().' existe?');
+file_exists($page->getControllerPath())? include_once $page->getControllerPath():exit("root/index:" . $page->getControllerPath().' existe?');
 
 //VIEW
 //Import header, view and footer if exist or displays error message. (Can import menu.php, categories.php...)

@@ -12,6 +12,8 @@
   $repere = "( " . __FILE__ . " ligne " . __LINE__ . ")";
 
 //Only members have rights to be here
-if($client)
+if($client):
 ?>
-<p>Router client</p>
+<p>Router client<br>
+<?=$repere?></p>
+<?php endif; ?>
