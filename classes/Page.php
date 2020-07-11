@@ -13,7 +13,7 @@
         /** FILE USING THIS CLASS: root/index.php       **/
         /*************************************************/
         /** FUNCTION INSIDE: __construct, getters, setters
-        *************************************************/
+        **************************************************/
 
 class Page extends Methods {
 
