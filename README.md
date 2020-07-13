@@ -57,7 +57,7 @@ Il y a donc trois espaces pour l'instant: public, client et membre
 
 Light à télécharger de Github comme Wordpress et install 10mn: index.php?page=instal !
  - OOP : avantage = encapsulation. Change public attributes to private in Light and add setters and getters
- - Edit config/ webmaster mail: contact@marcharnist.fr !
+ - Edit config/ webmaster mail: contact_marcharnist.fr !
  - classe/Database change attributs to private, create setters and getters
  - .ini file : use php native function "getElementByTagName() put_element by tag name() "
  - light/__page-creation and __page-edition are ugly ! Restore css !
