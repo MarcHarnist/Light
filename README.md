@@ -31,8 +31,18 @@ pour créer trois rooters
 Class page
 Add attribute "space" with setter ($GET['space']) and getter
 
+#Last update
+New controller bac but not enought strong to stop user under level 2. It's reserved to webmaster with right level = 1 but this page open with right level 2. It work for config-file-read.
 
-## Idées d'évolution
+File root/controller/page-from-page-index.php line 12: add a new line of code: the title of the new or other category, received from the database, is sent in the bloc html <head><title> with the method $page->setTitle($page_en_cours_de_lecture['title']);
+
+Marc L. Harnist
+Plan: Models
+ - / View / Controllers en PHP et POO.
+Particularité: index.php est le premier fichier lu par le navigateur.
+Tous les fichiers du site (les modèles, les classes, les contrôleurs, l'en-tête du site, la vue, le pied de page) sont inclus dans le fichier index.php
+
+## WISHLIST
 ### Create rooter in index.php in each plugin
 Créer un rooter dans index.php de chaque plugin pour les controleurs: beaucoup de contrôleurs font la même chose !
 - vérification des droits de l'utilisateur de lire ou d'écrire dans la page
@@ -56,15 +66,3 @@ Light à télécharger de Github comme Wordpress et install 10mn: index.php?page
  - Light: controllers en php, models SQL, view HTML
  - Mail pro = contact@marcharnist.fr
  - Mail private = harnist.marc@gmail.fr
-
-#Last update
-New controller bac but not enought strong to stop user under level 2. It's reserved to webmaster with right level = 1 but this page open with right level 2. It work for config-file-read.
-
-File root/controller/page-from-page-index.php line 12: add a new line of code: the title of the new or other category, received from the database, is sent in the bloc html <head><title> with the method $page->setTitle($page_en_cours_de_lecture['title']);
-
-Marc L. Harnist
-Plan: Models
- - / View / Controllers en PHP et POO.
-Particularité: index.php est le premier fichier lu par le navigateur.
-Tous les fichiers du site (les modèles, les classes, les contrôleurs, l'en-tête du site, la vue, le pied de page) sont inclus dans le fichier index.php
-
