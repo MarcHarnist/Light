@@ -1,9 +1,9 @@
 ﻿ 
- 
 				README
 				
 Marc L. Harnist
-Date: 2020/05/26
+Creation: 2020/05/26
+Updated : 2020/07/13
 
 # Work in process
 Testing router "client" : index.php?space=client&page=tableau-de-bord
@@ -33,18 +33,29 @@ Add attribute "space" with setter ($GET['space']) and getter
 
 
 ## Idées d'évolution
-Créer un rooter pour les controleurs: beaucoup de contrôleurs font la même chose !
+### Create rooter in index.php in each plugin
+Créer un rooter dans index.php de chaque plugin pour les controleurs: beaucoup de contrôleurs font la même chose !
 - vérification des droits de l'utilisateur de lire ou d'écrire dans la page
 - connexion à la base de donnée
-Créer un rooteur: controllers/controller.php qui récupérerait dans l'url "espace"
 Exemple: index.php?espace=membre pour l'adminstration
 et       index.php?espace=client pour les clients
 ensuite la page
-index.php?espace=client&page=donnes pour la page des "données" de Mydataball par exemple ou index.php?espace=membre&page=admin-index pour les administrateurs ou les clients propriétaires du site qui y ont un droit d'accès. 
+index.php?espace=client&page=donnes pour la page des "données" de Mydataball par exemple ou
+index.php?espace=membre&page=admin-index pour les administrateurs ou les clients propriétaires du site qui y ont un droit d'accès. 
 pour le reste:
 index.php?espace=public&page=accueil par exemple
 Il y a donc trois espaces pour l'instant: public, client et membre
 
+Light à télécharger de Github comme Wordpress et install 10mn: index.php?page=instal !
+ - OOP : avantage = encapsulation. Change public attributes to private in Light and add setters and getters
+ - Edit config/ webmaster mail: contact@marcharnist.fr !
+ - classe/Database change attributs to private, create setters and getters
+ - .ini file : use php native function "getElementByTagName() put_element by tag name() "
+ - light/__page-creation and __page-edition are ugly ! Restore css !
+ - Light = peu de fichiers et ressoures, sobriété numérique = écolo
+ - Light: controllers en php, models SQL, view HTML
+ - Mail pro = contact@marcharnist.fr
+ - Mail private = harnist.marc@gmail.fr
 
 #Last update
 New controller bac but not enought strong to stop user under level 2. It's reserved to webmaster with right level = 1 but this page open with right level 2. It work for config-file-read.
@@ -57,16 +68,3 @@ Plan: Models
 Particularité: index.php est le premier fichier lu par le navigateur.
 Tous les fichiers du site (les modèles, les classes, les contrôleurs, l'en-tête du site, la vue, le pied de page) sont inclus dans le fichier index.php
 
-## Idées d'évolution
-### Création d’un nouvel objet : Client
-
-La création d’un nouvel objet, “Client”, s’est avéré nécessaire pour éviter les confusions avec les autres niveaux des membres:
-1 Webmaster - Il peut ajouter des membres - tout faire
-2 Propriétaire - Il peut modifier les pages du blog!
-3 Modérateur
-4 Membre
-5 Client
-
-Créer un nouveau fichier Client.php dans root/classes pour créer de nouveaux objets “Client”.
-
-Pouvoir se connecter avec l'email ou le nom
