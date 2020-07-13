@@ -8,8 +8,20 @@ Date: 2020/05/26
 # Work in process
 Testing router "client" : index.php?space=client&page=tableau-de-bord
 Work repport: index.php?page=bac
- 
-## Controllers / public, client, member
+Rooter client works well !
+ - Now construc bricks or plugins with their own index, controller, view
+	Example : contact page
+	People do not always need a page contact (Stephane Chauvin, Bertrand Fruchet, SMC)
+	If the client wants a contact page, install an AUTONOME contact page.
+	Plugins are installed by the webmaster if the client has bought it. AND ONLY IF CLIENT WANTS IT !
+	The website general rooter must check if plugins are here or not with index.php?space=plugin-name
+	is_exists(plugin_page_contact.php)? require(plugin_page_contact/index.php(= controller) + view + model);
+	brick/index.php = controller of the plugin.
+CMS Test	Download compressed repertory : branch "dev" and test local & online
+
+
+## Controll
+ -ers / public, client, member
 Création de trois espaces
  - public
  - clients
@@ -39,9 +51,9 @@ New controller bac but not enought strong to stop user under level 2. It's reser
 
 File root/controller/page-from-page-index.php line 12: add a new line of code: the title of the new or other category, received from the database, is sent in the bloc html <head><title> with the method $page->setTitle($page_en_cours_de_lecture['title']);
 
-# Light
 Marc L. Harnist
-Plan: Models / View / Controllers en PHP et POO.
+Plan: Models
+ - / View / Controllers en PHP et POO.
 Particularité: index.php est le premier fichier lu par le navigateur.
 Tous les fichiers du site (les modèles, les classes, les contrôleurs, l'en-tête du site, la vue, le pied de page) sont inclus dans le fichier index.php
 
