@@ -20,8 +20,7 @@ Rooter client works well !
 CMS Test	Download compressed repertory : branch "dev" and test local & online
 
 
-## Controll
- -ers / public, client, member
+## Controllers / public, client, member
 Création de trois espaces
  - public
  - clients
