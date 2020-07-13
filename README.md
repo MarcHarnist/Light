@@ -63,5 +63,4 @@ Light à télécharger de Github comme Wordpress et install 10mn: index.php?page
  - light/__page-creation and __page-edition are ugly ! Restore css !
  - Light = peu de fichiers et ressoures, sobriété numérique = écolo
  - Light: controllers en php, models SQL, view HTML
- - Mail pro = contact@marcharnist.fr
- - Mail private = harnist.marc@gmail.fr
+ - Use Mail pro
