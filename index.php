@@ -31,10 +31,11 @@ if(file_exists($page->getRouterPath())) require($page->getRouterPath());//requir
 
 //CONTROLERS
 //Import controler if exists for this page name or exit an display an error message
-file_exists($page->getControllerPath())? include_once $page->getControllerPath():exit("root/index:" . $page->getControllerPath().' existe?');
+file_exists($page->getControllerPath()) AND include $page->getControllerPath().
+// :exit("root/index:" . $page->getControllerPath().' existe?');
 
 //VIEW
 //Import header, view and footer if exist or displays error message. (Can import menu.php, categories.php...)
-file_exists($page->getHeaderPath())?require_once($page->getHeaderPath()): exit($page->getHeaderPath().' existe?');
-file_exists($page->getViewPath())?require($page->getViewPath()): exit($page->getViewPath().' exixte?');
+file_exists($page->getHeaderPath())?require($page->getHeaderPath()): exit($page->getHeaderPath().' existe?');
+file_exists($page->getViewPath())?require($page->getViewPath()): exit("Root/index.php: " . $page->getViewPath().' existe?');
 file_exists($page->getFooterPath())?require($page->getFooterPath()): exit($page->getFooterPath().' existe?');

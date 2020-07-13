@@ -31,15 +31,17 @@ class Page extends Methods {
   private $categories; // Chemin du menu des catégories
   private $errorMessage;
   private $falseCars = ['.php'];
-  
+  private $publicSpace;
+
     // Constructeur
     public function __construct(){
+		$this->setPublicSpace();
 		$this->setPageName();
 		$this->setSpaceName();
+		$this->setRouterPath();
 		$this->setTitle();
 		$this->setFileName();
 		$this->setControllerPath();
-		$this->setRouterPath();
 		$this->setViewPath();
 		$this->setCssLink();
 		$this->setHeaderPath();
@@ -63,8 +65,8 @@ class Page extends Methods {
 		$spaceName = !empty($_GET["space"]) ? htmlspecialchars($_GET['space']) : $spaceName;
 
 		//Erase false cars. 
-		$this->spaceName = $this->checkFalseCars($spaceName);//Example: checkFalseCars(spaceName.php) = spaceName
-		
+		$spaceName = $this->checkFalseCars($spaceName);//Example: checkFalseCars(spaceName.php) = spaceName
+		$this->spaceName = $spaceName;//Example: checkFalseCars(spaceName.php) = spaceName
 	}
 	/** Function setTitle()
 	*   Set the title in the html bloc "<head>" in root/inc/header.php and in the url.
@@ -84,18 +86,17 @@ class Page extends Methods {
 	private function setControllerPath($controllerPath = "controllers/accueil.php"){
 		$this->controllerPath = $controllerPath; // Default value
 		
+		//Check if a spaceName exists
+		if($this->getSpaceName() === "") $this->controllerPath = $this->getPublicSpace.$this->getSpaceName() . "/" . $this->fileName;
+		
 		// If a file controller exists with this->fileName, define the path of the file
-		if(is_file("controllers/" . $this->fileName)) $this->controllerPath = "controllers/" . $this->fileName;
-		
-		//Check if a spaceName "client" exists
-		if($this->getSpaceName() === "clients") $this->controllerPath = "public/". $this->getSpaceName() . "/" . $this->fileName;
+		elseif(is_file("controllers/" . $this->fileName)) $this->controllerPath = "controllers/" . $this->fileName;
 	}
-	private function setRouterPath(){
-		
-		$this->routerPath = $this->getSpaceName() . ".php"; //Add extension
-		
-		// If a file router exists with this $routerPath, define the path of the file
-		if(is_file($this->getSpaceName())) $this->routerPath = $this->getSpaceName(). '.php';
+	private function setRouterPath()
+	{
+		$routerPath = $this->getPublicSpace().$this->getSpaceName()."/"; //Add extension
+
+		$this->routerPath = $this->getPublicSpace.$this->getSpaceName(); //Add extension
 	}
 	private function setViewPath($viewPath =  "view/vue-par-defaut.php"){
 		$this->viewPath = $viewPath; //View by default
@@ -109,7 +110,7 @@ class Page extends Methods {
 		*/
 		
 		//Check if a spaceName "client" exists
-		if($this->getSpaceName() === "clients") $this->viewPath = "public/". $this->getSpaceName() . "/view-" . $this->fileName;
+		if($this->getSpaceName() === "") $this->viewPath = $this->getPublicSpace. $this->getSpaceName() . "/view-" . $this->fileName;
 
 		/* TO DO END ***********************************************************************************************************/
 	}
@@ -127,6 +128,9 @@ class Page extends Methods {
 	}
 	private function setErrorMessage(String $messageText){
 		$this->errorMessage = $messageText;
+	}
+	private function setPublicSpace(String $publicSpace = "public/"){
+		$this->publicSpace = $publicSpace;
 	}
 	/** Getters
 	*
@@ -170,6 +174,8 @@ class Page extends Methods {
 	public function getFalseCars(){
 		return $this->falseCars;
 	}
+	public function getPublicSpace(){return $this->publicSpace;}
+	
 	/** Other methodes
 	*
 	*/
