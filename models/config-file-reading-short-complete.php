@@ -26,7 +26,8 @@
 
     <h4 class="h3"><i>Thème</i></h4>
 
-    <p>Rendre les valeurs de config paramétrables dans un formulaire de l'administration du site web.<p>    
+    <p>Déplacer Alpha vers root/config/config.php en rendant les valeurs de config paramétrables dans
+		un formulaire de l'administration du site web.<p>    
 
     <hr>
 
