@@ -5,24 +5,11 @@
 				Marc L. Harnist
 				26/05/2020
  
-## Idées d'évolution
-Créer un rooter pour les controleurs: beaucoup de contrôleurs font la même chose !
-- vérification des droits de l'utilisateur de lire ou d'écrire dans la page
-- connexion à la base de donnée
-Créer un rooteur: controllers/controller.php qui récupérerait dans l'url "espace"
-Exemple: index.php?espace=membre pour l'adminstration
-et       index.php?espace=client pour les clients
-ensuite la page
-index.php?espace=client&page=donnes pour la page des "données" de Mydataball par exemple ou index.php?espace=membre&page=admin-index pour les administrateurs ou les clients propriétaires du site qui y ont un droit d'accès. 
-pour le reste:
-index.php?espace=public&page=accueil par exemple
-Il y a donc trois espaces pour l'instant: public, client et membre
+ 
+# News
 
-
-#Last update
-New controller bac but not enought strong to stop user under level 2. It's reserved to webmaster with right level = 1 but this page open with right level 2. It work for config-file-read.
-
-File root/controller/page-from-page-index.php line 12: add a new line of code: the title of the new or other category, received from the database, is sent in the bloc html <head><title> with the method $page->setTitle($page_en_cours_de_lecture['title']);
+ * root / engine / models / config-localhost-file-read.php: this file will read the root / public / config / config-localhost.php, installed in root / public because this file belongs only to this website and not to files common stored in root / engine. Thus, when updating the CMS Light, only root / engine will be updated and no root / public file.
+ 
 
 # Light
 Marc L. Harnist
