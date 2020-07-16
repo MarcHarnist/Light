@@ -46,7 +46,8 @@
 				</li>
 				<li>Bac à sable
 					<ul>
-					  <li><a href="<?= $website->page_url;?>bac">Travaux de développement en cours</a></li>
+					  <li><a href="<?= $website->page_url;?>install">Install manager !</a></li>
+					  <li><a href="<?= $website->page_url;?>bac">bac à sable</a></li>
 					</ul>
 				</li>
 			  <li>Membres
