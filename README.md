@@ -11,7 +11,20 @@ Hello world !
 I am working on root / engine / models /
 I create a new file that is abble to open, read and display the web application configuration file in an html page, by copying an other model created this month. This configuration file, specific to each application, is stored in the repertory "public". So, it will be easy to upgrade the website engine in a new version, just in upload the repertory "engine" and not touch the repertory "public". So, the web application design, images, and all its specific files wont be destroyed.
 
-Add a new line useless here to test git rallback
+# What I learned today !
+
+## Versioning : commits comment are crucials !
+
+I learned how rallback to a latest commit. It is really exciting ! 
+Commands lines:
+git log //to see all commits number (hash)
+//memorize or copy a commit number (hash)
+git checkout [number]
+//you can create a new branch
+git branch -c rall-back-test
+//or not; You can use the command : git log oneline.
+
+And then you see that the comments are very important to detect wich version you want to restore!
 
 # Light
 Marc L. Harnist
