@@ -1,7 +1,7 @@
 <header>	
 	<h2>Contactez-nous !</h2>
 </header>	
-<article>
+<article class=" pb-3">
 	<div class="col-sm-12">
 		<form action="<?= $website->page_url . 'contact_verif';?>" method="post">
 		  <div class="form-group">
