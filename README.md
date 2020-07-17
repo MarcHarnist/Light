@@ -17,10 +17,13 @@ I create a new file that is abble to open, read and display the web application 
 
 I learned how rallback to a latest commit. It is really exciting ! 
 Commands lines:
+
 git log //to see all commits number (hash)
 //memorize or copy a commit number (hash)
+
 git checkout [number]
 //you can create a new branch
+
 git branch -c rall-back-test
 //or not; You can use the command : git log oneline.
 
