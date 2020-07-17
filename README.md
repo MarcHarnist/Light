@@ -3,7 +3,8 @@
 				README
 				 
  
- @author : Marc Harnist isabelle
+ @author : Marc Harnist
+ @date : 2020-07-17 
  
 # News
 
