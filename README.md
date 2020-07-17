@@ -7,8 +7,9 @@
  @date : 2020-07-17 
  
 # News
-
- * root / engine / models / config-localhost-file-read.php: this file will read the root / public / config / config-localhost.php, installed in root / public because this file belongs only to this website and not to files common stored in root / engine. Thus, when updating the CMS Light, only root / engine will be updated and no root / public file.
+Hello world !
+I am working on root / engine / models /
+I create a new file that is abble to open, read and display the web application configuration file in an html page, by copying an other model created this month. This configuration file, specific to each application, is stored in the repertory "public". So, it will be easy to upgrade the website engine in a new version, just in upload the repertory "engine" and not touch the repertory "public". So, the web application design, images, and all its specific files wont be destroyed.
 
 # Light
 Marc L. Harnist
