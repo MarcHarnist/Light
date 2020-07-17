@@ -3,7 +3,7 @@
 				README
 				 
  
- @author : Marc Harnist
+ @author : Marc Harnist isabelle
  
 # News
 
