@@ -1,10 +1,9 @@
 ﻿ 
  
 				README
-				
-				Marc L. Harnist
-				26/05/2020
+				 
  
+ @author : Marc Harnist
  
 # News
 
