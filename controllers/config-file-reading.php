@@ -6,6 +6,25 @@
 	@Date : 2020-07-01
 	Theme : Display config file constants to edit them
 -->
+<style>
+h3 {
+	margin-top: 20px;
+}
+
+.table_constants td {
+	border: 1px dotted white;
+	padding: 10px;
+}
+
+.table_constants th {
+	border: 1px dotted #22609E;
+	padding: 10px;
+	background-color: white;
+	color: #22609E !important;
+	text-align: center;
+}
+</style>
+
 <p>
 	<i>Modèle importé : root/modèle/config-file-reading.php</i>
 </p>
@@ -126,11 +145,11 @@ $originalCodeWithPre = "<pre>" . $originalCode . "</pre>";
 		</tr>
 <?php  foreach ($listeConst as $key => $constant) : ?>
 <tr>
-			<td><?=$key?></td>
+			<td class="text-center"><?=$key?></td>
 			<td><?=$constant[0]?></td>
-			<td><input class="btn text-left" type="text"
+			<td><input class="btn text-white" type="text"
 				name="<?=$constant[0]?>" value="<?=$constant[1]?>"></td>
-			<td><input class="btn text-left" type="text"
+			<td><input class="btn text-white" type="text"
 				name="<?=$constant[0]?>/comment" 
 				value="<?=$constant[2]?>"></td></tr>
 	<?php
@@ -140,3 +159,8 @@ endforeach
 	</table>
 	<input type="submit" value="Enregistrer">
 </form>
+
+<h3>Suite du chantier</h3>
+
+<p>Modifier les valeurs des constantes dans un formulaire de
+	l'administration du site en se servant des "array key" comme repère !</p>

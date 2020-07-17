@@ -1,25 +1,26 @@
 <!--
-                       Model Config-file-reading
+                       Model Config-localhost-file-reading
 
-	@File : root/models/config-file-reading
+	@File : root/engine/config-manager/config-localhost-file-reading-model.php
 	@Author : Marc Harnist
-	@Date : 2020-07-01
-	Theme : Display config file constants to edit them
+	@Date : 2020-07-17
+	Theme : Display config-localhost file constants to edit them
 -->
 <p>
-	<i>Modèle importé : root/modèle/config-file-reading.php</i>
+	<i>Modèle importé : root/modèle/config-localhost-file-reading.php</i>
 </p>
 
 <h4 class="h3">
 	<i>Thème</i>
 </h4>
 
-<p>Rendre les valeurs de config paramétrables dans un formulaire de l'administration du site web.
+<p>Rendre les valeurs de config-localhost paramétrables dans un formulaire de l'administration du site web.
 
 <hr>
 
 <p>
     <?php
+	
 	$countLines = 0;
     $constants = array(); // Will receive config values
 	$listeConst = array();
@@ -28,6 +29,7 @@
     $csvFileSeparator_linesComments = "//";
     $originalCode = "";
     $originalText = "";
+	$postAction = 'engine/config-manager/config-localhost-file-edition-controller.php';
     $rejectedCars = [
         "define",
         "(",
@@ -116,7 +118,7 @@ $originalCodeWithPre = "<pre>" . $originalCode . "</pre>";
 <pre><?=$originalText;?></pre>
 <h3>Les constantes du fichier config</h3>
 <form method="post"
-	action="<?=$website->page_url. 'config-file-edition.php'?>">
+	action="<?=$postAction?>">
 	<table class="table_constants">
 		<tr>
 			<th>Array key</th>
