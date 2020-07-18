@@ -5,7 +5,20 @@
 				Marc L. Harnist
 				26/05/2020
  
+# Last release
+
+## Plugin config-manager
+
+I created an "engine / config-manager" plugin. This plugin presents a page with a form which proposes to change the identifiers of connection to the local database (localhost). So if you change these identifiers, the website will no longer work locally. Please don't laugh.
+
+Seriously my idea today is to install a lite version of cms Light instead of config-manager and delete unused files.
+
+This plugin will import the theme (CSS files, images, logo) of the website on which it is installed and will offer its pages, programs and services.
+
+To figure out how to create a plugin, I have to imagine someone coming to your house and doing a repair: a plumber, a carpenter, a bricklayer. This person will scrupulously respect your interior, your decorations, your murals and will bring you some services, using the decorations of your house as is.
+
 ## Idées d'évolution
+
 Créer un rooter pour les controleurs: beaucoup de contrôleurs font la même chose !
 - vérification des droits de l'utilisateur de lire ou d'écrire dans la page
 - connexion à la base de donnée
