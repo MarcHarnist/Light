@@ -1,8 +1,8 @@
 <!-- Affichage des pages à éditer dans la vue le 13/08/2017 ML-Harnist -->
-<article class="bg-light w-100">
+<article class="bg-light page-manager">
 		<form class = "row p-3 bg-secondary m-3 rounded" method="post" action="<?= $website->page_url;?>__pages-save">
 			<div class="col-lg-12">
-				<p class="text-white page-edition">Modifiez vous-mêmes les pages de votre site! - <a  class="text-white" href="<?= $website->page_url . 'page-from-pages-index&id=' . $pages['id'] . '&categorie=' . $pages['category'] . '&titre=' . $pages['title'];?>">Voir la publication</a> - <a  class="text-white" href="<?= $website->page_url;?>pages-index&categorie=<?=$pages['category'];?>" title="Ouvrir la catégorie">Ouvrir la catégorie <?=$pages['category'];?></i></a> - <a  class="text-white" href="<?= $website->page_url;?>__pages-creation">Nouvelle page</a> 
+				<p class="text-white ">Modifiez vous-mêmes les pages de votre site! - <a  class="text-white" href="<?= $website->page_url . 'page-from-pages-index&id=' . $pages['id'] . '&categorie=' . $pages['category'] . '&titre=' . $pages['title'];?>">Voir la publication</a> - <a  class="text-white" href="<?= $website->page_url;?>pages-index&categorie=<?=$pages['category'];?>" title="Ouvrir la catégorie">Ouvrir la catégorie <?=$pages['category'];?></i></a> - <a  class="text-white" href="<?= $website->page_url;?>__pages-creation">Nouvelle page</a> 
 			</div>
 			<div class="col-lg-12">
 				<div class="row">
@@ -45,7 +45,7 @@
 				<div class="row">
 					<div class="text-white col-lg-12">
 					<div class="row">
-						<p class="col-lg-3">Changer la catégorie:</p>		
+						<p class="col-lg-3  text-white">Changer la catégorie:</p>		
 						<select class="form-control col-lg-4 h-25" name="category">
 						  <option selected><?=$pages['category'];?></option>
 							<?php
@@ -56,7 +56,7 @@
 								}
 								?>
 						</select>
-						<input class="col-lg-4 ml-3 form-control h-25" type="text" name="category_new" value="" placeholder="Créer une nouvelle catégorie">	
+						<input class="col-lg-4 ml-3 form-control h-25" type="text" name="category_new" value="" placeholder="Créer nouvelle catégorie">	
 					</div>
 				</div>
 			</div>

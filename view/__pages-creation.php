@@ -1,4 +1,4 @@
-<article class="bg-light w-100">
+<article class="bg-light page-manager">
 	<header class="row bg-light">
 		<h2 class="row m-3 text-muted">Créez vos propres pages!</h2>
 	</header>	
