@@ -1,13 +1,15 @@
 .lightColor {background-color: rgba(47,100,148,.5)!important;}
 body {background-color:#f8f9fa!important;}
-
+.lightColor {
+    background-color: rgba(47,100,148,.5)!important;
+}
 header, footer {background:lightgrey;}
 
 /* First header rules */
 body>header figure img {margin-top:13px; margin-left:3px;}
 body>header a, h1 {margin-top:17px !important;}
 
-.subtitle {font-size:17px; font-style:italic;}
+.subtitle {color: white; font-size:17px; font-style:italic;}
 
 h2, h3, h4, h5, h6, p {background-color:#f8f9fa!important; color: #6c757d!important;}
 

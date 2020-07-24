@@ -3,15 +3,17 @@
 *    File : root/config/config.php
 *    Author : Marc Harnist
 *    Date de création : 2020-07-01
-*    Date mise à jour : 2020-07-17
+*    Date mise à jour : 2020-07-24
 *    Content : website constants
 **/
 
 define('DOMAIN', 'light');//com
-define('WEBSITE_NAME', 'Light');//
+define('WEBSITE_NAME', 'Light pour Riasec by Zaabel');//
 define('WEBSITE_URL', 'index.php');//Website url
 define('PAGE_URL', 'index.php?page=');//pages url used in root/inc/header.php
-define('PLUGINS_PATH', 'engine/');//pages url used in root/inc/header.php
+define('LOGO_DISPLAY', 'yes');//
+define('MENU_DISPLAY', 'yes');//
+define('PLUGINS_PATH', 'engine');///pages url used in root/inc/header.php
 define('WEBMASTER', 'Marc_Harnist');//Webmaster name used in classes/Database
 define('SUBTITLE', 'Un CMS utilisant peu de ressources !');//
 define('WEBSITE_OWNER', 'Marc Harnist');//
