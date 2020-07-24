@@ -1,0 +1,6 @@
+/* echo $website::message("Travaux actuels sur user.php", "Déplacer 
+\"models/user.php\" dans \$website::session_checker ?<br>
+Démarrer la fonction static \"session_checker\" dans le constructeur
+de la classe \"Website\"?<br>
+<i><small>Modifier ce message dans le fichier " . __FILE__ .  ", ligne " . __LINE__ . ".</small></i>", "lightgreen");*/
+
