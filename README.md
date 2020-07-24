@@ -1,41 +1,40 @@
 ﻿ 
  
 				README
-				
-				Marc L. Harnist
-				26/05/2020
+				 
  
+ @author : Marc Harnist
+ @date : 2020-07-17 
+
 # Last release
 
-## Plugin config-manager
+Try to repare ckEditor
+ * idea: I mean that only page light/index.php?page=pages-index&categorie=news display to much space between lines?
+ * this page works well : 
+ index.php?page=page-from-pages-index&id=131&categorie=pages&titre=Mentions-légales
 
-I created an "engine / config-manager" plugin. This plugin presents a page with a form which proposes to change the identifiers of connection to the local database (localhost). So if you change these identifiers, the website will no longer work locally. Please don't laugh.
+# News
+Hello world !
+I am working on root / engine / models /
+I create a new file that is abble to open, read and display the web application configuration file in an html page, by copying an other model created this month. This configuration file, specific to each application, is stored in the repertory "public". So, it will be easy to upgrade the website engine in a new version, just in upload the repertory "engine" and not touch the repertory "public". So, the web application design, images, and all its specific files wont be destroyed.
 
-Seriously my idea today is to install a lite version of cms Light instead of config-manager and delete unused files.
+# What I learned today !
 
-This plugin will import the theme (CSS files, images, logo) of the website on which it is installed and will offer its pages, programs and services.
+## Versioning : commits comment are crucials !
 
-To figure out how to create a plugin, I have to imagine someone coming to your house and doing a repair: a plumber, a carpenter, a bricklayer. This person will scrupulously respect your interior, your decorations, your murals and will bring you some services, using the decorations of your house as is.
+I learned how rallback to a latest commit. It is really exciting ! 
+Commands lines:
 
-## Idées d'évolution
+git log //to see all commits number (hash)
+//memorize or copy a commit number (hash)
 
-Créer un rooter pour les controleurs: beaucoup de contrôleurs font la même chose !
-- vérification des droits de l'utilisateur de lire ou d'écrire dans la page
-- connexion à la base de donnée
-Créer un rooteur: controllers/controller.php qui récupérerait dans l'url "espace"
-Exemple: index.php?espace=membre pour l'adminstration
-et       index.php?espace=client pour les clients
-ensuite la page
-index.php?espace=client&page=donnes pour la page des "données" de Mydataball par exemple ou index.php?espace=membre&page=admin-index pour les administrateurs ou les clients propriétaires du site qui y ont un droit d'accès. 
-pour le reste:
-index.php?espace=public&page=accueil par exemple
-Il y a donc trois espaces pour l'instant: public, client et membre
+git checkout [number]
+//you can create a new branch
 
+git branch -c rall-back-test
+//or not; You can use the command : git log oneline.
 
-#Last update
-New controller bac but not enought strong to stop user under level 2. It's reserved to webmaster with right level = 1 but this page open with right level 2. It work for config-file-read.
-
-File root/controller/page-from-page-index.php line 12: add a new line of code: the title of the new or other category, received from the database, is sent in the bloc html <head><title> with the method $page->setTitle($page_en_cours_de_lecture['title']);
+And then you see that the comments are very important to detect wich version you want to restore!
 
 # Light
 Marc L. Harnist
