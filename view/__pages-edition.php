@@ -2,7 +2,7 @@
 <article class="bg-light w-100">
 		<form class = "row p-3 bg-secondary m-3 rounded" method="post" action="<?= $website->page_url;?>__pages-save">
 			<div class="col-lg-12">
-				<p class="text-white">Modifiez vous-mêmes les pages de votre site! - <a  class="text-white" href="<?= $website->page_url . 'page-from-pages-index&id=' . $pages['id'] . '&categorie=' . $pages['category'] . '&titre=' . $pages['title'];?>">Voir la publication</a> - <a  class="text-white" href="<?= $website->page_url;?>pages-index&categorie=<?=$pages['category'];?>" title="Ouvrir la catégorie">Ouvrir la catégorie <?=$pages['category'];?></i></a> - <a  class="text-white" href="<?= $website->page_url;?>__pages-creation">Nouvelle page</a> 
+				<p class="text-white page-edition">Modifiez vous-mêmes les pages de votre site! - <a  class="text-white" href="<?= $website->page_url . 'page-from-pages-index&id=' . $pages['id'] . '&categorie=' . $pages['category'] . '&titre=' . $pages['title'];?>">Voir la publication</a> - <a  class="text-white" href="<?= $website->page_url;?>pages-index&categorie=<?=$pages['category'];?>" title="Ouvrir la catégorie">Ouvrir la catégorie <?=$pages['category'];?></i></a> - <a  class="text-white" href="<?= $website->page_url;?>__pages-creation">Nouvelle page</a> 
 			</div>
 			<div class="col-lg-12">
 				<div class="row">
