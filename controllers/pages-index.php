@@ -1,10 +1,8 @@
 <?php
 
-// 2 = level of permission, $member = object
-$website->membersPermissions(2, $member);
-
 // On demande toutes les pages qui ont une categorie "new"
 $category = "news"; // default value: fonction default value doesn't work
+$editor_display = False;
 
 // Get new category with $_GET from inc/header/nav links
 if(isset($_GET['categorie']))
