@@ -5,7 +5,14 @@
  
  @author : Marc Harnist
  @date : 2020-07-17 
- 
+
+# Last release
+
+Try to repare ckEditor
+ * idea: I mean that only page light/index.php?page=pages-index&categorie=news display to much space between lines?
+ * this page works well : 
+ index.php?page=page-from-pages-index&id=131&categorie=pages&titre=Mentions-légales
+
 # News
 Hello world !
 I am working on root / engine / models /
