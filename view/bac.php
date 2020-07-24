@@ -21,9 +21,14 @@
   </header>
   <section class="col-lg-12 ">
     <h3 class="h5"><i>Baccasable</i></h3>
-	<p>Travaux en cours: sauvegarde des commentaires du fichier root/config/config.php<br>
-	Fichier modifié: <strong><u><big>models</big></u></strong>/config-file-read.php line ~ 73<br>
-	<a href="index.php?page=config-file-read"><u>Page html qui affichera le résultat.</u></a>
+	<h5>Travaux en cours</h5>
+	<ol>
+	<li>Sauvegarde des commentaires du fichier root/config/config.php. Fichier modifié: 
+	<u><a href="index.php?page=config-file-read"><strong><big>models</big></strong>/config-file-read.php line ~ 73</a></u></li>
+	<li>Création du plugin <u><a href="index.php?page=config-manager">root/engine/config-manager</a></u></li>
+	
+	</ol>
+	
 
   </section>
 </article>

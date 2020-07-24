@@ -18,20 +18,22 @@
 class Page extends Methods {
 
   //Attributs
-  private $pageName; // Nom de la page. Exemple : "accueil"
-  private $title; // Titre de la page qui s'affiche dans l'onglet du navigateur
-  private $fileName; // pageName.php Exemple: accueil.php
-  private $controllerPath;  // Chemin du contrôleur. Exemple: controller/accueil.php
-  private $viewPath;        // Chemin de la vue. Exemple: view/accueil.php
-  private $cssLink; // Chemin de la feuille de style pour cette page si elle existe
-  private $headerPath; // Chemin de l'en-tête de la page 
-  private $footerPath; // Chemin du pied de page
   private $categories; // Chemin du menu des catégories
+  private $controllerPath;  // Chemin du contrôleur. Exemple: controller/accueil.php
+  private $cssLink; // Chemin de la feuille de style pour cette page si elle existe
   private $errorMessage;
   private $falseCars = ['.php'];
+  private $fileName; // pageName.php Exemple: accueil.php
+  private $footerPath; // Chemin du pied de page
+  private $headerPath; // Chemin de l'en-tête de la page 
+  private $pageName; // Nom de la page. Exemple : "accueil"
+  private $pluginsPath;
+  private $title; // Titre de la page qui s'affiche dans l'onglet du navigateur
+  private $viewPath;        // Chemin de la vue. Exemple: view/accueil.php
   
     // Constructeur
     public function __construct(){
+		$this->setPluginsPath(PLUGINS_PATH);
 		$this->setPageName();
 		$this->setTitle();
 		$this->setFileName();
@@ -73,12 +75,28 @@ class Page extends Methods {
 		
 		// If a file controller exists with this->fileName, define the path of the file
 		if(is_file("controllers/" . $this->fileName)) $this->controllerPath = "controllers/" . $this->fileName;
+		
+		// If a plugin exists with this repertory name
+		if(is_file($this->pluginsPath . $this->fileName)) $this->controllerPath = $this->pluginsPath . $this->fileName . "-controller";
+		
 	}
-	private function setViewPath($viewPath =  "view/vue-par-defaut.php"){
+	
+	
+	
+	// private function setViewPath($viewPath =  "view/vue-par-defaut.php"){
+	private function setViewPath($viewPath = " nom de page non renseigné - "){
 		$this->viewPath = $viewPath; //View by default
-
+		
 		//If view exists define PAGE (real path) path of this file in view
 		if(is_file("view/" . $this->fileName)) $this->viewPath =  "view/" . $this->fileName;
+		
+		// If a plugin exists with this repertory name
+		$pluginsPath = str_replace(".php", "", $this->pluginsPath . $this->fileName);
+		$pluginsPath = $pluginsPath . "/index.php";
+		
+		// if(is_file($pluginsPath)) exit("chemin du plugin : ".$pluginsPath); else exit("chemine du plugin : ".$pluginsPath);
+		// include($pluginsPath);
+		if(is_file($pluginsPath)) $this->viewPath = $pluginsPath;
 	}
 	public function setCssLink(){
 		$this->cssLink = $this->cssLink($this->pageName); //Create a css link in head for this page with class "Methods" (see extends)
@@ -94,6 +112,9 @@ class Page extends Methods {
 	}
 	private function setErrorMessage(String $messageText){
 		$this->errorMessage = $messageText;
+	}
+	private function setPluginsPath($pluginsPath = "engine/"){
+		$this->pluginsPath = $pluginsPath;
 	}
 	/** Getters
 	*
@@ -131,6 +152,10 @@ class Page extends Methods {
 	public function getFalseCars(){
 		return $this->falseCars;
 	}
+	public function getPluginsPath(){
+		return $this->pluginsPath;
+	}
+	
 	/** Other methodes
 	*
 	*/

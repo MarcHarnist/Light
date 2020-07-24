@@ -57,7 +57,7 @@
 				</label>
 			  </div>
 				  <p class="text-center">
-					  <input class = "btn  text-white" type="submit"  name="utiliser" value="Se connecter"><br>
+					  <input class = "btn lightColor text-white" type="submit"  name="utiliser" value="Se connecter"><br>
 					  <a href="<?=$website->page_url;?>creer-compte">S'inscrire</a>
 				  </p>
 			</form>

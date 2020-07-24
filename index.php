@@ -25,6 +25,6 @@ file_exists($page->getControllerPath())? include_once $page->getControllerPath()
 
 //VIEW
 //Import header, view and footer if exist or displays error message. (Can import menu.php, categories.php...)
-file_exists($page->getHeaderPath())?require_once($page->getHeaderPath()): exit($page->getHeaderPath().' existe?');
-file_exists($page->getViewPath())?require($page->getViewPath()): exit($page->getViewPath().' exixte?');
-file_exists($page->getFooterPath())?require($page->getFooterPath()): exit($page->getFooterPath().' existe?');
+file_exists($page->getHeaderPath())?require_once($page->getHeaderPath()): exit($page->getHeaderPath().' 1 existe ?');
+file_exists($page->getViewPath())?require($page->getViewPath()): exit($page->getViewPath().' 2 existe ?');
+file_exists($page->getFooterPath())?require($page->getFooterPath()): exit($page->getFooterPath().' 3 existe ?');
