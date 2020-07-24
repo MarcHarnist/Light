@@ -1,5 +1,8 @@
 <?php
 
+// 2 = level of permission, $member = object
+$website->membersPermissions(2, $member);
+
 // On demande toutes les pages qui ont une categorie "new"
 $category = "news"; // default value: fonction default value doesn't work
 
@@ -11,3 +14,8 @@ $read = new Database;	// POO! $lire = array() qui contient toute la table des pa
 
 //List all categories
 $pages = $read->getPagesByCategories($category, '', 300);
+
+//User rights for edition
+if(isset($member) && $member->level <= 2)
+	$editor_display = True; //User has enough permissions ?>
+
