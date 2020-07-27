@@ -5,6 +5,14 @@
  
  @author : Marc Harnist
  @date : 2020-07-17 
+ Branch dev-monday
+ 
+# OVH freeze session system
+
+Session system is used to store the name of the connected member and keep it while changing page. 
+But it do not work on OVH.
+Issue : use a file to store the user's values like it was done in 2000 years ! 
+So does my friend Stephane C.
 
 # Last release
 
