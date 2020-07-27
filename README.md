@@ -22,6 +22,10 @@ Try to repare ckEditor
  * this page works well : 
  index.php?page=page-from-pages-index&id=131&categorie=pages&titre=Mentions-légales
 
+# Commit several lines
+
+git commit -m "Title" -m "first line with long text " -m "other line"...
+
 # News
 Hello world !
 I am working on root / engine / models /
