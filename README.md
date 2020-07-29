@@ -20,8 +20,12 @@ Try to repare ckEditor
 
 ### Controller
 
-Path: controller/accueil.php : $page_en_cours_de_lecture = $read->getOneEntryById(TABLE_PAGES, 136);
+Path: controller/accueil.php : 
 
+Code php :
+```php
+$page_en_cours_de_lecture = $read->getOneEntryById(TABLE_PAGES, 136);
+```
 ### View
 
 Code: 
