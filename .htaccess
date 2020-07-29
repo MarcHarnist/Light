@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !index.php
+# RewriteRule (.*)(.*) /light/index.php?page=$1&categorie=$2
+RewriteRule page-($1) light/index.php?page=$1
