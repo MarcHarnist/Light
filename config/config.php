@@ -13,6 +13,8 @@ define('WEBSITE_URL', 'index.php');//Website url
 define('PAGE_URL', 'index.php?page=');//pages url used in root/inc/header.php
 define('LOGO_DISPLAY', 'yes');//
 define('MENU_DISPLAY', 'yes');//
+define('BLOG_AUTHOR_DISPLAY', 'no');
+define('BLOG_DATE_DISPLAY', 'no');
 define('PLUGINS_PATH', 'engine');///pages url used in root/inc/header.php
 define('WEBMASTER', 'Marc_Harnist');//Webmaster name used in classes/Database
 define('SUBTITLE', 'Un CMS utilisant peu de ressources !');//

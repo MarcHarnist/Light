@@ -836,10 +836,6 @@ class Database extends Methods // extends Methods extends Website
     public function getOnePageByIdToUpdate($id = 1){
         if(isset($_GET['id']) && !empty($_GET['id']))$this->id = htmlspecialchars($_GET['id']);
 		
-		var_dump($id);
-		var_dump(TABLE_PAGES);
-		// die();
-		
         $req = $this->db->prepare('SELECT * FROM ' . TABLE_PAGES . ' WHERE id = ' . $this->id . '');
         $req->execute();
         $page = $req->fetch ();

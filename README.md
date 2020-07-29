@@ -2,18 +2,10 @@
  
 				README
 				 
+ 
  @author : Marc Harnist
  @date : 2020-07-17 
- Updating : 2020-07-27 monday
-
- Branch dev-monday
- 
-# OVH freeze session system
-
-Session system is used to store the name of the connected member and keep it while changing page. 
-But it do not work on OVH.
-Issue : use a file to store the user's values like it was done in 2000 years ! 
-So does my friend Stephane C.
+ Branch dev-engin-config-manager
 
 # Last release
 
@@ -21,10 +13,6 @@ Try to repare ckEditor
  * idea: I mean that only page light/index.php?page=pages-index&categorie=news display to much space between lines?
  * this page works well : 
  index.php?page=page-from-pages-index&id=131&categorie=pages&titre=Mentions-légales
-
-# Commit several lines
-
-git commit -m "Title" -m "first line with long text " -m "other line"...
 
 # News
 Hello world !

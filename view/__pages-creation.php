@@ -1,4 +1,4 @@
-<article class="bg-light w-100">
+<article class="bg-light page-manager">
 	<header class="row bg-light">
 		<h2 class="row m-3 text-muted">Créez vos propres pages!</h2>
 	</header>	
@@ -11,7 +11,7 @@
 		  <label for="date" class="text-white">Date</label><input type="text" class="form-control" name="date" value="<?=$date_default;?>" id="date">
 		</div>
 		<div class="col-lg-9">
-		  <label for="author" class="text-white">Auteur</label><input type="text" class="form-control" name="author" value="<?=$website::OWNER;?>" id="author">
+		  <label for="author" class="text-white">Auteur</label><input type="text" class="form-control" name="author" value="<?=WEBSITE_OWNER;?>" id="author">
 		</div>
 	    <div class="col-lg-12 pt-3">
 			<label for="titre" class="text-white">Titre</label>

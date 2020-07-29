@@ -5,6 +5,9 @@
 	}
 	article, main>header { max-width:750px !important; margin: 0 auto !important;}
 	
+	/* page-creation & page-edtion */
+	article.page-manager { min-width:95% !important; margin: 0 auto !important;}
+	
 }
 @media (max-width: 768px){
 	/* All articles rules */
