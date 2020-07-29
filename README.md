@@ -18,17 +18,15 @@ Try to repare ckEditor
 
 ## Example: homepage
 
-### Controller
+Name : accueil.php
+Path : controller/accueil.php and view/accueil.php
 
-Path: controller/accueil.php : 
+### Controller Php code
 
-Code php :
 ```php
 $page_en_cours_de_lecture = $read->getOneEntryById(TABLE_PAGES, 136);
 ```
-### View
-
-Code: 
+### View Php code
 
 ``` php
 <?=$page_en_cours_de_lecture['text'];?>
