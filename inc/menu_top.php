@@ -20,9 +20,9 @@
 					 </a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link"  title = "Page contact" href="<?=$website->page_url;?>contact">
+					<a class="nav-link"  title = "Page contact" href="contact">
 					<i class="fa fa-envelope-o fa-fw fa-2x" aria-hidden="true"></i> 
-					</a>
+					</a> 
 				</li>
 				<li class="nav-item">
 					 <a class="nav-link"  title = "Se connecter en tant que client" 
