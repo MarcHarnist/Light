@@ -14,6 +14,32 @@ Try to repare ckEditor
  * this page works well : 
  index.php?page=page-from-pages-index&id=131&categorie=pages&titre=Mentions-légales
 
+# Display a page in a view
+
+## Example: homepage
+
+### Controller
+
+Path: controller/accueil.php : $page_en_cours_de_lecture = $read->getOneEntryById(TABLE_PAGES, 136);
+
+### View
+
+Code: 
+
+``` php
+<?=$page_en_cours_de_lecture['text'];?>
+
+	<?php if($editor_display):?>
+
+	<p class="icon"><?php include_once("view/".'__menu-edition.php');?></p>
+
+	<?php endif; ?>
+```
+
+### Page edition
+
+Path : index.php?page=pages-index&categorie=pages - Find your page and get the id number to paste in your controller, for the $Database->getOneEntryById(tableName, id) argument
+
 # News
 Hello world !
 I am working on root / engine / models /
