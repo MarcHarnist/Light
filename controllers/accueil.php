@@ -17,12 +17,15 @@ $read = new Database;
 *   Only categorie "news" is wanted
 */
 $categories = $read->list_categories(); 
-$page_en_cours_de_lecture = $read->getPagesByCategories("news", "accueil", 10000000);
+$page_en_cours_de_lecture = $read->getOneEntryById(TABLE_PAGES, 136);
     //Paramètres: catégorie (ici "news", page (ici "accueil"), nombres de caractères pour l'extrait (ici 10 000 000 = tout)
-	
 
 /** Espace de connexion
 */
 $save_nom = "";
 $message = new Message;// My first class self made ! 08/2017 MarcL.Harnist
+
+//User rights for edition
+if(isset($member) && $member->level <= 2)
+	$editor_display = True; //User has enough permissions ?>
 
