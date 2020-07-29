@@ -5,14 +5,12 @@
  
  @author : Marc Harnist
  @date : 2020-07-17 
- Branch dev-engin-config-manager
+ Branch dev-new-skeleton
 
-# Last release
+# New skeleton
 
-Try to repare ckEditor
- * idea: I mean that only page light/index.php?page=pages-index&categorie=news display to much space between lines?
- * this page works well : 
- index.php?page=page-from-pages-index&id=131&categorie=pages&titre=Mentions-légales
+Repertory config/ will be moved to public/
+Reperotry css, img, ... to public.
 
 # Display a page in a view
 
