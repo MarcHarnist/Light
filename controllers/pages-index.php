@@ -15,5 +15,7 @@ $pages = $read->getPagesByCategories($category, '', 300);
 
 //User rights for edition
 if(isset($member) && $member->level <= 2)
-	$editor_display = True; //User has enough permissions ?>
+	$editor_display = True; //User has enough permissions
 
+//For inc/menu-categories.php
+$categories = $read->list_categories(); 

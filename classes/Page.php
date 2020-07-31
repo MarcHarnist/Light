@@ -67,8 +67,9 @@ class Page extends Methods {
 		else //Title informed in the controller. Example : page-from-pages-index.php
 			$this->title = $this->cleanPageName($string); // function in class Methods
 	}
-	private function setFileName(){
-		$this->fileName  = $this->pageName . '.php'; //Ajoute l'extension pour trouver le fichier php
+	private function setFileName($extension = ".php")
+	{
+		$this->fileName  = $this->pageName . $extension;//add extension to file name
 	}
 	private function setControllerPath($controllerPath = "controllers/accueil.php"){
 		$this->controllerPath = $controllerPath; // Default value
@@ -79,13 +80,18 @@ class Page extends Methods {
 		// If a plugin exists with this repertory name
 		if(is_file($this->pluginsPath . $this->fileName)) $this->controllerPath = $this->pluginsPath . $this->fileName . "-controller";
 		
+		/** 2020 July new dir: PUBLIC ******************/
+		$testPath  = "public/" . $this->fileName . "-controller";
+		// If a controller exists in public (-controller: for Notepadd++ saving dir)
+		if(is_file($testPath))
+		{
+			$this->controllerPath = $testPath;
+		}
+		
 	}
-	
-	
-	
-	// private function setViewPath($viewPath =  "view/vue-par-defaut.php"){
-	private function setViewPath($viewPath = " nom de page non renseigné - "){
-		$this->viewPath = $viewPath; //View by default
+	private function setViewPath($defaultPath =  "public/view/404.php")
+	{
+		$this->viewPath = $defaultPath; //View by default
 		
 		//If view exists define PAGE (real path) path of this file in view
 		if(is_file("view/" . $this->fileName)) $this->viewPath =  "view/" . $this->fileName;
@@ -97,6 +103,75 @@ class Page extends Methods {
 		// if(is_file($pluginsPath)) exit("chemin du plugin : ".$pluginsPath); else exit("chemine du plugin : ".$pluginsPath);
 		// include($pluginsPath);
 		if(is_file($pluginsPath)) $this->viewPath = $pluginsPath;
+		
+		// If a plugin exists with this repertory name
+		if(is_file($this->pluginsPath . $this->fileName))
+		{
+			$this->controllerPath = $this->pluginsPath . $this->fileName . "-controller";
+		}
+		/** Public ******************/
+		$testViewPath = "public/view/" . $this->fileName;
+		//Check if exists. If not, viewPath is default path
+		if(is_file($testViewPath))
+		{
+			$this->viewPath = ""; //View by default
+			$this->viewPath = $testViewPath;
+		}
+		
+		/** ROOTER 
+		*   Public / admin 
+		*   Root/public/admin/ replace root/controller/__admin-index.php
+		*   Root/public/admin/admin.php replace root/view/__admin-index.php
+		*   Root/.htaccess : url rewriting, so Light/admin is the same
+		*   url as Light/index.php?page=__admin-index !
+		*   No more index.php? in url !
+		* 
+		**************************************************************/
+		$testViewPathPublicAdmin = "public/admin/" . $this->fileName;
+		
+		//Check if exists. If not, viewPath is default path
+		if(is_file($testViewPathPublicAdmin))
+		{
+			//Verify member rights to see this page
+			$levelAdmin = 3;
+			if($_SESSION)
+			{
+				if(!$_SESSION['member'])
+				{
+					$this->setViewPath("view/connexion.php");
+					$this->setControllerPath("controllers/connexion.php");
+				}
+				elseif(!isset($member))
+				{
+					$website = new Website; //Usefull method. Write websame in header
+					$member  = $website::session();//$_Session['member'] avoid to create object $member.
+					
+					if(isset($member) && $member->level() > $levelAdmin)
+					//Si le visiteur n'a pas le niveau (droits)
+					{
+						$this->viewPath = "view/acces-limite.php";
+						$this->setControllerPath("controllers/acces-limite.php");
+					}
+					elseif(isset($member) && $member->level() < $levelAdmin)
+					{
+						//This member has all permissions
+						$this->viewPath = $testViewPathPublicAdmin;
+						
+						//New controller in root/public
+						$newController = "public/admin/" . $this->pageName . "-controller.php";//	(pageName has not the extension .php)
+						
+						$this->setControllerPath($newController);
+					}
+				}
+			}
+			elseif(!isset($member))
+			//Si le visiteur n'a pas le niveau (droits)
+			{
+				//$ member n'existe pas";
+				$this->viewPath = "view/connexion.php";
+				$this->setControllerPath("controllers/connexion.php");
+			}
+		}		
 	}
 	public function setCssLink(){
 		$this->cssLink = $this->cssLink($this->pageName); //Create a css link in head for this page with class "Methods" (see extends)

@@ -1,21 +1,27 @@
 <article>
 	<section>
 	  <header class="row bg-light">
-		<h2 class="row ml-0 text-muted">Bonjour <?=$name;?>, bienvenue sur votre profil</h2>
+		<h2 class="row ml-0 text-muted h3">Bonjour <?=isset($member_name)?$member_name:"";?>, bienvenue sur votre profil</h2>
+		<p>Vous êtes sur la nouvelle page <?= __FILE__ ?>.
+		<?php
+		if(!isset($member_name)):?>
+		<p class="text-success">Message pour le webmaster : $member_name est inconnu. Controller non trouvé?<br>
+		<small><i>Fichier <?= __FILE__ ?></small></i></p>
+		<?php 
+		endif;?>
 	  </header>
 		<fieldset class = "fieldset_profil">
-		  <legend><?= $name;?></legend>
-		  <?php 
-		  /**                              NEWS SUR LES TRAVAUX EN COURS
-		  * Trois données à envoyer à la classe Website: "titre", "contenu du message", "couleur de fond - css"
-		  */
-		  // echo $website->message("Travaux en cours", "Rangement du code de la classe Database", "lightgreen");
-		  ?>
-		  <p>Vous êtes connecté. Votre niveau: <?=$level;?></p>
+		  <?=isset($level)?"<p>Vous êtes connecté. Votre niveau: $level</p>":""?>
 		  <?php
 		  if(isset($member) && $member->level < 3){
 			?>
 			<ul>
+				<li>RIASEC
+					<ul>
+					  <li><a href="end">Raccourcis vers la fin (end)</a></li>
+					  <li><a href="<?= $website->page_url;?>riasec-questions-manager">Gérer les questions</a></li>
+					</ul>
+				</li>
 				<li>Clients
 					<ul>
 					  <li><a href="<?= $website->page_url;?>__client-index">Clients</a></li>

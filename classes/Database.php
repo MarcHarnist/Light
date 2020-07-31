@@ -569,6 +569,78 @@ class Database extends Methods // extends Methods extends Website
         }  
   }
 
+  /** Method "update_table_RIASEC_questions"
+  *   Description : update db table "riasec_questions"
+  *   Parameters: db table name and $posts ($_POST)
+  *   Returns : anchor (for url#anchor)
+  *   Version : 1.0
+  */ 
+public function update_table_riasec_questions($table, $posts){
+	$id =
+	$question =
+	$theme =
+	$profile = 
+	$operation =
+	$ancre = "";
+
+	foreach($posts as $key => $value)
+	{
+		//Return false if there are htmlspecialchars
+		if($posts[$key] !== htmlspecialchars($posts[$key])) return false;
+
+		switch($key){
+			case "id":
+			$id = $value;
+			break;
+			case "question":
+			$question = $value;
+			break;
+			case "theme":
+			$theme = $value;
+			break;
+			case "profile":
+			$profile = $value;
+			break;
+			case "anchor":
+			$anchor = $value-1;
+			break;
+			case "operation":
+			$operation = $value;
+			break;
+		}
+	}
+	
+	// CREATION
+	switch($operation)
+	{
+		case "creation":
+		$req = $this->db->prepare('INSERT INTO ' . $table . ' (question, theme, profile ) VALUE(:question, :theme, :profile)');
+		$req->execute(array(
+		'question' => $question,
+		'theme' => $theme,
+		'profile' => $profile,
+		));
+		return $ancre;
+		break;
+		case "update":
+		$req = $this->db->prepare('UPDATE ' . $table . ' SET question = :question, theme = :theme, profile = :profile WHERE id = :id');
+		$array = [
+				'id' => $id,
+				'question' => $question,
+				'theme' => $theme,
+				'profile' => $profile,
+				];
+		$req->execute($array);
+		return $anchor;
+		break;
+		case "delete":
+		$req = $this->db->prepare("DELETE FROM `".$table."` WHERE id = :id");
+		$req->execute(array('id' => $id));
+		return $anchor;
+		break;
+	}
+}
+
   /**  Methode "update_table_cde_panorama"
   *  Description : met à jour le tableau (table en anglais) "budget_panorama"
   *  Paramètres: nom du tableau (table), $posts =  $_POST
@@ -827,15 +899,12 @@ class Database extends Methods // extends Methods extends Website
         }
     /** Nom : getOnePageByIdToUpdate
     * Description : sélectionne une page par son "id" -------- sans nl2br ----------------
-    * Paramètres : int($id)
-    * Valeurs retournées : array avec toutes les entrées de la page demandée
     * Version : 1.0
     * Créée le : 20/07/2018
     * Modifiée le : 20/07/2018
     */  
     public function getOnePageByIdToUpdate($id = 1){
         if(isset($_GET['id']) && !empty($_GET['id']))$this->id = htmlspecialchars($_GET['id']);
-		
         $req = $this->db->prepare('SELECT * FROM ' . TABLE_PAGES . ' WHERE id = ' . $this->id . '');
         $req->execute();
         $page = $req->fetch ();
@@ -1314,6 +1383,7 @@ public function table_exists($table = 'table'){
 //Getters.........................................81
 protected function get_db_host(){return $this->db_host;}
 protected function get_db_name(){return $this->db_name;}
+public function getDb(){ return $this->db;}
 
 } // close the class
 

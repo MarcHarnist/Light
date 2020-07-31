@@ -5,7 +5,7 @@
 */
 if (isset($new_member)){?>
   <section>
-    <p>Le membre: <span class="text-succes"><?=$new_member->name();?></span> de niveau <span class="text-succes"><?=$new_member->level();?></span> a bien été renregistré!<br> <a href="<?=$website->page_url;?>__member-index">Voir la liste des membres</a> <br> <a href="<?=$website->page_url;?>__admin-index">Admin index</a></p>
+    <p>Le membre: <span class="text-succes"><?=$new_member->name();?></span> de niveau <span class="text-succes"><?=$new_member->level();?></span> a bien été renregistré!<br> <a href="<?=$website->page_url;?>__member-index">Voir la liste des membres</a> <br> <a href="admin">Admin</a></p>
   </section>
   <?php
 }

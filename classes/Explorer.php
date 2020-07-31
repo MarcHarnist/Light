@@ -15,7 +15,7 @@ class Explorer extends Website{
   public $explorateur = array();
   public $key =0;
   public $symbole_des_programmes = "__";
-  public $domaine = self::DOMAIN;
+  public $domaine = DOMAIN;
   public $new_dir_creation;
   public $chemin = False;
 

@@ -1,5 +1,5 @@
 <?php
-/** INDEX.PHP
+/** INDEX
 *   Author  : Marc Harnist
 *   Date    : 27/08/2018
 *   MVC-OOP : all files imported here (classes, controlers, models, header, footer)
@@ -7,24 +7,21 @@
 session_start(); // Start a session for members and clients spaces
 ini_set('display_errors',1); //Start Ovh php errors system
 
-//VARIABLES
-$models   = ["config" => 'models/config-uploader.php', "classes" => 'models/class-uploader.php'];
-$messages = [ "configImport"  => '<p>$models["config"] non trouvé.</p>', //config file not found
-              "classesUpload" => '<p>$models["classes"] non trouvé</p>'];//classes uploader not found
-//MODELS
-file_exists($models["config"])? require($models["config"]):exit($messages["configImport"]);//Import all config files
-file_exists($models["classes"])? require($models["classes"]):exit($messages["classesUpload"]);//Upload all classes
-$website = new Website; //Website = config file. (To do : Remove and use models/config.php to ignore in Git)
+//Define and import models and classes uploader
+$config = 'models/config-uploader.php';
+$classes = 'models/class-uploader.php';
+file_exists($config)? require_once($config):exit('"'.$config . '" not found.');
+file_exists($classes)? require_once($classes):exit('"'.$classes . '" not found.');
+
+$website = new Website; //Usefull method. Write websame in header
 $client  = $website::sessionClient();//$_Session['client'] avoid to create object $client.
 $member  = $website::session();//$_Session['member'] avoid to create object $member.
-$page    = new Page; //Use method "Get" to get page name and require controler and view with this name
+$page    = new Page; //Use method "Get" to get page name. Define controler and view pathes
 
-//CONTROLERS
-//Import controler if exists for this page name or exit an display an error message
-file_exists($page->getControllerPath())? include_once $page->getControllerPath():exit($page->getControllerPath().' existe?');
+//CONTROLERS for this page name
+file_exists($page->getControllerPath()) AND require_once $page->getControllerPath();
 
-//VIEW
-//Import header, view and footer if exist or displays error message. (Can import menu.php, categories.php...)
-file_exists($page->getHeaderPath())?require_once($page->getHeaderPath()): exit($page->getHeaderPath().' 1 existe ?');
-file_exists($page->getViewPath())?require($page->getViewPath()): exit($page->getViewPath().' 2 existe ?');
-file_exists($page->getFooterPath())?require($page->getFooterPath()): exit($page->getFooterPath().' 3 existe ?');
+//VIEW  header, footer for this page name. Other ideas: menu.php and categories.php.
+file_exists($page->getHeaderPath()) AND require_once($page->getHeaderPath());
+file_exists($page->getViewPath()) AND require_once($page->getViewPath());
+file_exists($page->getFooterPath()) AND require_once($page->getFooterPath());

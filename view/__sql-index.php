@@ -20,6 +20,6 @@
 		</a>
 	</p>
 	<p>
-		<a href="<?= $website->page_url;?>__admin-index" alt="Index de Sql">Retourner à l'accueil de l'administration</a>
+		<a href="admin" alt="Index de Sql">Retourner à l'accueil de l'administration</a>
 	</p>
 </section>
