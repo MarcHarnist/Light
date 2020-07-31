@@ -25,6 +25,7 @@ $page_en_cours_de_lecture = $read->getOneEntryById(TABLE_PAGES, 136);
 $save_nom = "";
 $message = new Message;// My first class self made ! 08/2017 MarcL.Harnist
 
+$editor_display = False;
 //User rights for edition
 if(isset($member) && $member->level <= 2)
 	$editor_display = True; //User has enough permissions ?>
