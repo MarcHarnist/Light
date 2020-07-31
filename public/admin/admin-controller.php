@@ -3,11 +3,16 @@
 *              Marc L. Harnist
 *
 *  Date: 10/08/2018
-*  Sommaire de l'administration
+*  Prepare the backoffice, the view public/admin/admin.php
+*  Page reserved to the members with enought rights.
 *
-*/
-	//Réservé aux membres
-	$website->membersPermissions(4, $member);// 4 = level of permission, $member = object
-
-	$level  = $member->level();// member level if member exists, else: default value from Website class.
-	$member_name   = $member->name();
+*  Rooter defined in classes/Page.php line 120 and following lines
+*  Method : setViewPath() witch instanciate class Member
+*  If member->level is to low, the user is redirected to 
+*  the page root/view/acces-limite.php"; (limited access)
+**/
+if(isset($member)){
+	
+	$member_name = $member->name();
+	$level       = $member->level();// member level int 1 = webmaster for example
+}
