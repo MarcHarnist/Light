@@ -6,7 +6,7 @@
 *****************************************************/
 
 //VARIABLES UTILES
-$url_admin_index = $website->page_url . '__admin-index';// index admin du site pour webmaster (modifier les articles, les fichiers, les membres (modifier ou ajouter), gérer la base de données...)
+$url_admin_index = 'admin';// backoffice. Admin url is defined in root/.htaccess
 $url_accueil = $website->page_url . 'accueil';
 
 

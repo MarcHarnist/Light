@@ -1,5 +1,5 @@
 <?php
-/**       Contrôleur __admin-index.php
+/**       Contrôleur admin-controller.php
 *              Marc L. Harnist
 *
 *  Date: 10/08/2018
