@@ -16,12 +16,6 @@
 		  if(isset($member) && $member->level < 3){
 			?>
 			<ul>
-				<li>RIASEC
-					<ul>
-					  <li><a href="end">Raccourcis vers la fin (end)</a></li>
-					  <li><a href="<?= $website->page_url;?>riasec-questions-manager">Gérer les questions</a></li>
-					</ul>
-				</li>
 				<li>Clients
 					<ul>
 					  <li><a href="<?= $website->page_url;?>__client-index">Clients</a></li>
