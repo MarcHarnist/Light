@@ -72,9 +72,15 @@ class Website {
 *	Version : 1.0 Créée le: 29/07/2018 MAJ: 30/08/2018
 */  public function membersPermissions($int = 99, $member){
       if(!$_SESSION['member'])
+	  {
 		header('Location: ' . $this->page_url . 'connexion');//Redirection à l'accueil du site
+		exit(__FILE__);
+	  }
 	  elseif($member->level() > $int)//Si le visiteur n'a pas le niveau (droits)
+	  {
 		header('Location: ' . $this->page_url . 'acces-limite');//Redirection à l'accueil du site
+		exit(__FILE__);
+	  }
     }
 /** clientPermissions()......................line 76
 *	Description : redirige à l'accueil si le visiteur n'a pas les droits (niveau)
