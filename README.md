@@ -8,6 +8,8 @@
  Branch dev-new-skeleton
 
 # New skeleton
+"__admin-index.php" is moved in public/admin/admin.php and admin-controller.php
+A rooter has been created in Page / setViewPath(). This method instanciate the classes/Member and check if this user is a member and if he has enought permissions to see the backoffice "admin".
 
 Repertory config/ will be moved to public/
 Reperotry css, img, ... to public.
