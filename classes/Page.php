@@ -114,18 +114,63 @@ class Page extends Methods {
 		//Check if exists. If not, viewPath is default path
 		if(is_file($testViewPath))
 		{
+			$this->viewPath = ""; //View by default
 			$this->viewPath = $testViewPath;
 		}
-		/** Public / admin ******************/
+		
+		/** ROOTER 
+		*   Public / admin 
+		*   Root/public/admin/ replace root/controller/__admin-index.php
+		*   Root/public/admin/admin.php replace root/view/__admin-index.php
+		*   Root/.htaccess : url rewriting, so Light/admin is the same
+		*   url as Light/index.php?page=__admin-index !
+		*   No more index.php? in url !
+		* 
+		**************************************************************/
 		$testViewPathPublicAdmin = "public/admin/" . $this->fileName;
+		
 		//Check if exists. If not, viewPath is default path
 		if(is_file($testViewPathPublicAdmin))
 		{
-			$this->viewPath = $testViewPathPublicAdmin;
-			
-			//New controller for public dir (pageName has not the extension .php)
-			$newController = "public/admin/" . $this->pageName . "-controller.php";
-			$this->setControllerPath($newController);
+			//Verify member rights to see this page
+			$levelAdmin = 3;
+			if($_SESSION)
+			{
+				if(!$_SESSION['member'])
+				{
+					$this->setViewPath("view/connexion.php");
+					$this->setControllerPath("controllers/connexion.php");
+				}
+				elseif(!isset($member))
+				{
+					$website = new Website; //Usefull method. Write websame in header
+					$member  = $website::session();//$_Session['member'] avoid to create object $member.
+					
+					if(isset($member) && $member->level() > $levelAdmin)
+					//Si le visiteur n'a pas le niveau (droits)
+					{
+						$this->viewPath = "view/acces-limite.php";
+						$this->setControllerPath("controllers/acces-limite.php");
+					}
+					elseif(isset($member) && $member->level() < $levelAdmin)
+					{
+						//This member has all permissions
+						$this->viewPath = $testViewPathPublicAdmin;
+						
+						//New controller in root/public
+						$newController = "public/admin/" . $this->pageName . "-controller.php";//	(pageName has not the extension .php)
+						
+						$this->setControllerPath($newController);
+					}
+				}
+			}
+			elseif(!isset($member))
+			//Si le visiteur n'a pas le niveau (droits)
+			{
+				//$ member n'existe pas";
+				$this->viewPath = "view/connexion.php";
+				$this->setControllerPath("controllers/connexion.php");
+			}
 		}		
 	}
 	public function setCssLink(){
