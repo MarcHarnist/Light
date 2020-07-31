@@ -4,13 +4,13 @@
 				<li class="nav-item">
 					<a 	class="mr-2" 
 						title = "Mensions légales du site web"
-						href="<?=$website->page_url;?>page-from-pages-index&id=131&categorie=pages&titre=Mentions-légales">
+						href="Mentions-legales">
 						<i class="fas fa-gavel fa"></i></a>
 				</li>
 				<li class="nav-item">
 					<a  class="mx-2 text-light"
 						title = "Se connecter à l'administration du site"
-						href="<?=$website->page_url;?>connexion">
+						href="connexion">
 						<i class="fa fa-user" aria-hidden="true"></i>
 					</a>
 				</li>
