@@ -1,0 +1,20 @@
+
+@media (min-width: 769px){
+	body>header>ul {
+		margin-top: 24px;
+	}
+	article, main>header, main>section { max-width:750px !important; margin: 10px auto;}
+	
+	/* page-creation & page-edition */
+	article.page-manager { min-width:95% !important; margin: 0 auto !important;}
+	
+	/* If no <article><header> before h2, h3... */
+	main>h2, main>h3, main>h4, main>form {margin:20px;}
+}
+@media (max-width: 768px){
+	/* All articles rules */
+	main { margin: 0 20px !important;}
+	article {margin-left:20px;}
+}
+
+
