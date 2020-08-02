@@ -12,10 +12,36 @@
 	  }
 	?>
 
-	<?=$page_en_cours_de_lecture['text'];?>
+	<article
+	<header>
+	<h2>
+	Light New Skeleton</h2>
+	</header>
+<p>
+	<a href="index.php?page=page-from-pages-index&amp;id=139&amp;titre=ck-editor-deplace-vers-public-?">Projet: d&eacute;placer le plugin CKEditor dans root/public/ ?</a></p>
+<p>
+	Nouvelle version de Light: Light New Skeleton.<br />
+	Le dossier de configuration, les dossiers css, img, seront d&eacute;plac&eacute;s dans root/public</p>
+	
+<p>Autre article : <a href="index.php?page=page-from-pages-index&amp;id=132&amp;titre=en-savoir-plus-sur-light">En savoir plus sur Light</a></p>
+	</article>
+	<?
+	
+	/** CKEditor bug: the bug appears when you switch to see the code source
+	*   in the page __page-creation.php. CKEditor add <p> </p> at each time
+	*   you clic on the icone "source code". 
+	*/
+	//=$page_en_cours_de_lecture['text'];?>
 
-	<?php if($editor_display):?>
-
-	<span class="icon"><?php include_once('inc/menu-edtion.php');?></span>
-
-	<?php endif; ?>
+	<?php
+	// if($editor_display):
+	?>
+	<!--
+	<span class="icon">
+	<?php 
+	//include_once('inc/menu-edtion.php');
+	?>
+	</span>
+	-->
+	<?php
+	// endif; ?>
