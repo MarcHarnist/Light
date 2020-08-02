@@ -1,3 +1,0 @@
-<?php
-
-/* Index of public
