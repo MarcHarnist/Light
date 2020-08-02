@@ -19,8 +19,8 @@
 	</header>
 <p>
 	<a href="index.php?page=page-from-pages-index&amp;id=139&amp;titre=ck-editor-deplace-vers-public-?">Projet: d&eacute;placer le plugin CKEditor dans root/public/ ?</a></p>
-<p>
-	Nouvelle version de Light: Light New Skeleton.<br />
+
+<p>	Nouvelle version de Light: Light New Skeleton.<br />
 	Le dossier de configuration, les dossiers css, img, seront d&eacute;plac&eacute;s dans root/public</p>
 	
 <p>Autre article : <a href="index.php?page=page-from-pages-index&amp;id=132&amp;titre=en-savoir-plus-sur-light">En savoir plus sur Light</a></p>
