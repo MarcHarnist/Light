@@ -15,7 +15,11 @@ define('LOGO_DISPLAY', 'yes');//
 define('MENU_DISPLAY', 'yes');//
 define('BLOG_AUTHOR_DISPLAY', 'no');//
 define('BLOG_DATE_DISPLAY', 'no');//
+define('TITLE_DISPLAY', 'yes');//
+define('ANIMATION_DISPLAY', 'no');//
+define('MENU_FOOTER_DISPLAY', 'yes');//
 define('PLUGINS_PATH', 'engine');///pages url used in root/inc/header.php
+define('PUBLIC_PATH', 'public');///pages url used in root/inc/header.php
 define('WEBMASTER', 'Marc_Harnist');//Webmaster name used in classes/Database
 define('SUBTITLE', 'Un CMS utilisant peu de ressources !');//
 define('WEBSITE_OWNER', 'Marc Harnist');//

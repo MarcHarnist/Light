@@ -3,37 +3,16 @@
 	body>header>ul {
 		margin-top: 24px;
 	}
+	article, main>header { max-width:750px !important; margin: 0 auto !important;}
 	
-	/* If no <article><header> before h2, h3... */
-	main>h2, main>h3, main>h4, main>form, main>p {margin:20px 20px 20px 20px;}
+	/* page-creation & page-edtion */
+	article.page-manager { min-width:95% !important; margin: 0 auto !important;}
 	
-	article { max-width:500px; margin: 20px auto;}
-	main>header { max-width:750px !important; margin: 0 auto !important;}
-	main>section { max-width:750px !important; margin: 0 auto !important;}
-	article.questionnaire { max-width:90% !important; margin: 20px auto	!important;}
-	article.statistiques { max-width:98%;}
-	/* .questionnaire, main>header { max-width:541px !important; margin: 0 auto !important;} */
-	.questionnaire { max-width:541px !important; margin: 0 auto !important;}
-	.questionnaireTitle { 
-		text-align: center; 
-		max-width:541px !important; 
-		margin: 5px auto !important;
-	}
-	h1 {
-		margin-left: 5px !important;
-	}
-	input[type=checkbox] {margin-top: 5px;}
-	body.bodyHomepage {background-image:url("../img/background.jpg");}
 }
 @media (max-width: 768px){
-	header h1 {margin:5px !important;}
-	.questionnaireTitle { text-align: center; margin: 5px auto !important;}
-	figure {margin:0 !important;}
-	main { margin: 0 5px;}
-	article {margin: 20px 0 0 20px;}
-	.questionnaire input {margin-left:7px;}
-	.finalResult{display:block;}
-
+	/* All articles rules */
+	main { margin: 0 20px !important;}
+	article {margin-left:20px;}
 }
 
 

@@ -2,14 +2,12 @@
 		<header class="row bg-light p-3 text-muted">
 			<h2 class="col-lg-12">404</h2>
 			<h3 class="col-lg-12">Désolé, page non trouvée...</h3>
-		</header>
-		<!--
+		</header>	
 		<figure>
 			<img class="w-100" src="img/desert-page-404.jpg">
 		</figure>
-		-->
 		<div class="col-lg-12">
-			<h4 class="col-lg-12">Contactez-nous pour me le signaler!</h4>
+			<h4 class="col-lg-12">Contactez-moi pour me le signaler!</h4>
 			<form action="<?=$website->page_url . 'contact_verif';?>" method="post">
 			  <div class="form-group">
 				<label for="email">Email address *</label>
