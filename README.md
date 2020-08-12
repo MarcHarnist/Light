@@ -4,20 +4,26 @@
 				 
  
  @author : Marc Harnist
- @date : 2020-07-17 
+ @date : 2020-08-12 
  Branch dev-new-skeleton
+ 
+# Last creation : Riasec
 
-# New skeleton
+Class Page.php 
 
-Repertory config/ will be moved to public/
-Reperotry css, img, ... to public.
+# Create a repertory and Light will find it !
+
+1. Create a repertory root/test/
+2. Create a file inside : root/test/test.php
+3. Optionnal : Create a controller : root/test/test-controller.php
+4. Open navigator in url : light/index.php?page=test
 
 # Display a page in a view
 
 ## Example: homepage
 
 Name : accueil.php
-Path : controller/accueil.php and view/accueil.php
+Path : controller/accueil.php and public/view/accueil.php
 
 ### Controller Php code
 

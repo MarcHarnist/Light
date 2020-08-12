@@ -62,6 +62,7 @@ class Database extends Methods // extends Methods extends Website
     private $db_username;                  // pour la classe "Database"
     private $db_password;                  // pour la classe "Database"
 	public $webmaster;
+	private $tableStats = TABLE_STATS;
 
     /** Nom : __construct..........51
     *   Description : crée l'objet Database avec les identifiants définis dans config.php
@@ -640,7 +641,116 @@ public function update_table_riasec_questions($table, $posts){
 		break;
 	}
 }
+/** Method Riasec "update_table_stats"
+*   Parameters: db table name and $posts ($_POST)
+*   Returns : anchor (for url#anchor)
+*/ 
+public function update_table_stats($table = TABLE_STATS, $posts){
 
+	$id =
+	$name =
+	$visits =
+	$operation =
+	$anchor = 0;
+	$messageException = "Pas de problème dans la db";
+
+	foreach($posts as $key => $value)
+	{
+		//Return false if there are htmlspecialchars
+		if(strval($posts[$key]) !== htmlspecialchars($posts[$key]))
+		{
+			return false;
+		}
+		switch($key)
+		{
+			case "id":
+			$id = $value;
+			break;
+			case "name":
+			$name = $value;
+			break;
+			case "visits":
+			$visits = $value;
+			break;
+			case "anchor":
+			$anchor = $value-1;
+			break;
+			case "operation":
+			$operation = $value;
+			break;
+		}
+	}
+	switch($operation)
+	{
+		// CREATION
+		case "creation":
+		$request = 'INSERT INTO ' . $table . ' (name, visits) VALUE(:name, :visits)';
+		try
+		{
+			$req = $this->db->prepare($request);
+			$req->execute(array(
+			'name' => $name,
+			'visits' => $visits,
+			));
+		}
+		catch(Exception $e)
+		{
+			$messageException = $e->getMessage();
+		}
+		return ["messageException" => $messageException, "anchor"  => $anchor];
+		break;
+		
+		//UPDATING
+		case "update":
+		$requestUpdate = 'UPDATE ' . $table . ' SET name = :name, visits = :visits WHERE id = :id';
+		$updateArray = [
+				'id' => $id,
+				'name' => $name,
+				'visits' => $visits,
+				];
+		try{
+			$req = $this->db->prepare($requestUpdate);
+			$req->execute($updateArray);
+		}catch(Exception $e){
+			$messageException = $e->getMessage();
+		}
+		return ["messageException" => $messageException, "anchor"  => $anchor];
+		break;
+		
+		//DELETE
+		case "delete":
+		$req = $this->db->prepare("DELETE FROM `".$table."` WHERE id = :id");
+		$req->execute(array('id' => $id));
+		return $anchor;
+		break;
+	}
+}
+/** Method Riasec "statsIncrementPage"
+*   Parameters: page name : accueil or activité, or occupation, or compétences, or caractère or mail for Riasec 
+*   Returns exception message if exists and anchor (for links in page html)
+*/
+public function statsIncrementPage(string $pageName)
+{
+	$tableStatsData = $this->read_table($this->tableStats);
+	//Search page to update in db
+	foreach($tableStatsData as $key => $val)
+	{
+		switch($val['name'])
+		{
+			case $pageName:
+			$array1 = 
+			[
+				"id" => $val['id'],
+				"name" => $val['name'],
+				"visits" => $val['visits']+1,
+				"operation" => "update",
+				"anchor" => 0
+			];
+			return $this->update_table_stats($this->tableStats, $array1);
+			break;
+		}
+	}
+}
   /**  Methode "update_table_cde_panorama"
   *  Description : met à jour le tableau (table en anglais) "budget_panorama"
   *  Paramètres: nom du tableau (table), $posts =  $_POST
@@ -763,7 +873,7 @@ public function update_table_riasec_questions($table, $posts){
     *     Version : 1.0
     *     Créée le : 18/07/2018
     *     Modifiée le : 18/07/2018                                                    *
-    *     Utilisée dans: root/controllers/__pages-creations.php
+    *     Utilisée dans: root/controllers/pages-creations.php
     */
 
         function list_categories(){
@@ -889,7 +999,7 @@ public function update_table_riasec_questions($table, $posts){
     *     Version : 1.0
     *     Créée le : 18/07/2018
     *     Modifiée le : 18/07/2018                                                    *
-    *     Utilisée dans: root/controllers/__pages-creations.php
+    *     Utilisée dans: root/controllers/pages-creations.php
     */
 
         function last_id(){
@@ -897,26 +1007,75 @@ public function update_table_riasec_questions($table, $posts){
             $last_entry = end($read);
             return $last_entry['id'];
         }
+	
+        function getLastId($table){
+            $read = $this->read_table($table);
+            $last_entry = end($read);
+            return $last_entry['id'];
+        }
+	
+
+    /** Nom : sqlRequest
+    * Description : select one page by "id"
+    * Creation : 2020-08-06
+    */  
+	function sqlRequest($id)
+	{
+		$req = $this->db->prepare('SELECT * FROM ' . TABLE_PAGES . ' WHERE id = ' . $id . '');
+		$req->execute();
+		$page = $req->fetch ();
+		return $page;
+	}
+    /** Nom : tryToFindNextId
+    * Description : search next id if exists
+    * Version : 1.0
+    * Creation : 2020-08-06
+    * Version : 1.0
+    */  
+	function tryToFindNextId($id)
+	{
+		$maxResearch = 1000;//Must be enough
+		for($i=0;$i<$maxResearch; $i++)
+		{	
+			$nextId = $id+$i;
+			$page = $this->sqlRequest($nextId);
+			if($page !== False) return $page;
+		}
+		return $page;
+	}
     /** Nom : getOnePageByIdToUpdate
     * Description : sélectionne une page par son "id" -------- sans nl2br ----------------
     * Version : 1.0
     * Créée le : 20/07/2018
     * Modifiée le : 20/07/2018
     */  
-    public function getOnePageByIdToUpdate($id = 1){
-        if(isset($_GET['id']) && !empty($_GET['id']))$this->id = htmlspecialchars($_GET['id']);
-        $req = $this->db->prepare('SELECT * FROM ' . TABLE_PAGES . ' WHERE id = ' . $this->id . '');
-        $req->execute();
-        $page = $req->fetch ();
+    public function getOnePageByIdToUpdate($id = null)
+	{
+		if($id !== null)
+		{
+			$page = $this->sqlRequest($id);
+			if($page === False)
+			{
+				//Id changed by delete other pages
+				$page = $this->tryToFindNextId($id);
+			}
+			if($page === False) return false;
+			
+			if(isset($page['date']))
+			{
+				$page['date'] = date(('d/m/Y'),$page['date']);
+			}
 
-        // On effectue du traitement sur les données (contrôleur)
-        // Ici, on doit surtout sécuriser l'affichage
-        // $page['title'] = htmlspecialchars($page['title']);
-        $page['date'] = date(('d/m/Y'),$page['date']);
-
-        //Title for the head
-        $page['title'] = $this->cleanPageName($page['title']); // function in models/page.php
-        return $page;
+			//Title for the head
+			if(isset($page['title']))
+			{
+				$page['title'] = $this->cleanPageName($page['title']); 
+				// function in classes/Methods.php
+			}
+			if($page !== False) return $page;
+			else return false;
+		}
+		return false;
     }
  /**  Methode "update_table_members"
   *  Description : met à jour le tableau (table en anglais)
@@ -1161,9 +1320,11 @@ public function update_table_riasec_questions($table, $posts){
 *  Créée le : 16/08/2018
 *  Modifiée le : 16/08/2018
 */	 
-public function update_article($post){
+public function update_article($post)
+{
 	// On récupère les données d'un formulaire
-	foreach($post as $label => $value){
+	foreach($post as $label => $value)
+	{
         //Traitement du formulaire dans une boucle!
 		if($label != "text") // Si ce n'est pas du texte on efface les caractères html
 			$post[$label] = htmlspecialchars($value);
@@ -1188,6 +1349,14 @@ public function update_article($post){
 		$post['date'] = str_replace('/','-',$post['date']);// replace / to - for strtotime
 		$post['date'] = strtotime($post['date'], time());// turn date to timestamp
 	}
+	//Title verify
+	if($post['title'] == '')
+	{
+		$this->error_title = 'empty';
+		return False;
+	}
+	
+	
 	$this->author     =  $post['author'];
 	$this->date       =  $post['date'];
 	$this->title      =  $post['title'];
@@ -1200,8 +1369,9 @@ public function update_article($post){
 		$this->N°         =  $post['N°'];
 	}
 	// CREATIONS
-	if($post['operation'] == "creation"){
-		$this->N° = $this->last_id+1;//N° = new id for page redirection at the bottom or the file __page-save.php
+	if($post['operation'] == "creation")
+	{
+		$this->N° = $this->last_id+1;//N° = new id for page redirection at the bottom or the file pages-save.php
 		$req = $this->db->prepare('INSERT INTO '. TABLE_PAGES .'(date, author, title, text, category) VALUE(:date, :author, :title, :text, :category)');
 		$req->execute(array(
 							 'date' => $this->date,
@@ -1250,14 +1420,22 @@ public function update_news($post = array(), $table = "test"){
 	if($post['category_new'] != '') $post['category'] = $post['category_new'];
 	$post['category'] = $this->cleanUrl($post['category']);
 
-	
-	// Date
-	if($post['date'] == '') {
+	//Verify title not empty, date 
+	if($post['title'] == '')
+	{
+		$this->error_title = 'empty';
+		return False;
+	}
+	if($post['date'] == '')
+	{
 		$this->error_date = 'empty';
-		return False;}
-	elseif(!preg_match( '`(\d{1,2})/(\d{1,2})/(\d{4})`' , $post['date'])) {
+		return False;
+	}
+	elseif(!preg_match( '`(\d{1,2})/(\d{1,2})/(\d{4})`' , $post['date'])) 
+	{
 		$this->error_date = 'format';
-		return False;}
+		return False;
+	}
 	else {
 		$post['date'] = str_replace('/','-',$post['date']);// replace / to - for strtotime
 		$post['date'] = strtotime($post['date'], time());// turn date to timestamp

@@ -47,17 +47,17 @@
     //
     // Check if file well exists
     $repere = "( Message de " . __FILE__ . " ligne " . __LINE__ . ")";
-    is_file($configFile) ? print("Le fichier $configFile a bien été trouvé. $repere") : exit("Fichier $configFile non trouvé. $repere");
+    is_file($configFileToReadAndEdit) ? print("Le fichier $configFileToReadAndEdit a bien été trouvé. $repere") : exit("Fichier $configFileToReadAndEdit non trouvé. $repere");
 
     // Read the file and push its content in a var array()
-    $configFileContent = $methods->readFile($configFile, $csvFileSeparator_line);
+    $configFileToReadAndEditContent = $methods->readFile($configFileToReadAndEdit, $csvFileSeparator_line);
     ?>
     </p>
 
 <?php
 // If file not false and not empty, continue. Else, displays an error message line 88
-if ($configFileContent !== False and $configFileContent !== "") {
-    foreach ($configFileContent as $key => $line) 
+if ($configFileToReadAndEditContent !== False and $configFileToReadAndEditContent !== "") {
+    foreach ($configFileToReadAndEditContent as $key => $line) 
 	{
         // Example of line of config file
         // define('WEBSITE_NAME', "Light");//WEBSITE_NAME = constant
@@ -107,7 +107,7 @@ if ($configFileContent !== False and $configFileContent !== "") {
     }
 } // Else displays an error message
 else
-    echo __LINE__ . " Fichier \"$configFile\" illisible !<br>";
+    echo __LINE__ . " Fichier \"$configFileToReadAndEdit\" illisible !<br>";
 
 // Add pre tag to $originalCode to display in html page
 $originalCodeWithPre = "<pre>" . $originalCode . "</pre>";

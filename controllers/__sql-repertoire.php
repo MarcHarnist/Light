@@ -8,7 +8,7 @@ if(isset($_GET['operation'])){
 
 $count = $count_sql = $count_dir = $count_php= 1;
 $autres_fichiers = $repertoires = $fichiers_sql = $fichiers_php = "";
-$dir = "backups/sql/";
+$dir = PUBLIC_PATH."backups/sql/";
 //	si le dossier pointe existe
 if (is_dir($dir)) {
 	 // si il contient quelque chose

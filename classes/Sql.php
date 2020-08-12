@@ -31,6 +31,9 @@ class Sql extends Database {
 
     public function __construct(){
 		parent::__construct();//Connect to db
+
+		// On spécifie le chemin absolu où le script stockera les sorties .gz
+		$this->path = BACKUPS_PATH.'/sql/';
     }
 	
 	public function download(){
@@ -55,8 +58,6 @@ class Sql extends Database {
 		$onlyStructureTables = array(
 		'tlb_historique',
 		);
-		// On spécifie le chemin absolu où le script stockera les sorties .gz
-		$this->path = 'backups/sql/';
 		
 		/// remplacer par connect_to_db
 		

@@ -12,7 +12,7 @@
 	<?php
 	   //VARIABLES
 		$model = "models/config-file-reading.php";//Required model
-		$configFile = "config/config.php";//Data files to read and  edit
+		$configFileToReadAndEdit = CONFIG_PATH;//Defined in public/config/config.php
 		$rightLevelThisPage = 1;// 1 = only administrator
 		$methods = new Methods;//Get and store a lot of usefull methods in the var. $methods
 		$database = new Database; // Connect to database and upload usefull methods (sql requests)
