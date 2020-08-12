@@ -1,0 +1,233 @@
+
+/* Special for accueil.css */
+
+body {background:url("../img/background.jpg");}
+
+/* Code below: letters behind the article */
+main { z-index:100 !important; position:relative !important; }
+
+/* Code below: letters in front of the article
+ * This code, coming after code above, will be used
+ */
+main { z-index:10 !important; position:relative !important; }
+
+main { 
+		min-height: 165px;
+		width: 229px;
+		margin: 0 auto;
+		padding-top:1px;
+		margin-top:28px;
+}
+main>h3 {margin-top:10px;}
+p, h3 {text-align: center;}
+
+/* Letters animation (movie) at the end of this file. Find letters in public/inc/footer.php  */
+
+#animation {display:block;}/* Only displayed in homepage (accueil) */
+
+body>header {display:none !important;}
+
+footer {display:none;}
+
+@media (min-width: 1400px){
+
+	#animation{width: 328px; margin:0 auto; margin-top:326;	}
+}
+@media (min-width: 769px){
+
+	#animation{width: 328px; margin:0 auto; margin-top:130;	}
+}
+
+@media (max-width: 768px){
+
+	#animation{width: 328px; margin:0 auto; margin-top:-50px;}
+	
+	body {background:url("../img/background-little.jpg") center top no-repeat;}
+
+	main { margin-top:84px;}
+	
+	article {margin:20px 0 0 0 !important;}
+	main>header {padding: 10px 0 0 0 !important; background-color:#f8f9fa!important;}
+	footer {display:none;}
+}
+
+/* #animation set in screen.css */
+/* #animation{margin-left:150px;} */
+ /* Letters principal div */
+.letters {
+	position: relative;
+	z-index: 99;
+	width: 200px;
+	top: 530px;
+	left: 0px;
+}
+.letter img { height:50px; }
+.still img { height:50px; }
+
+/* Stills letters (fr: lettres immobiles) */
+.still {
+	position:relative;
+	z-index:99;
+	height:0px;
+}
+.still_r { top:220px; left:15px; }
+.still_i { top:222px; left:65px; }
+.still_a { top:222px; left:115px; }
+.still_s { top:222px; left:160px; }
+.still_e { top:222px; left:212px; }
+.still_c { top:222px; left:255px; }
+
+/* Letter r */
+.letter_r {
+	position: relative;
+	z-index: 99;
+	width: 200px;
+	top: 530px;
+	left: 0px;
+}
+	
+/* .move1 = letter r */
+.move1 {
+	width:200px;
+	position:relative;
+    z-index: 90;
+    transform: translate(0,0);
+    /* animation: moving1 28s ease 0s infinite; */
+    animation: moving1 15s ease 0s infinite;
+    height: 0px;
+}
+/* letter r */
+@keyframes moving1 {
+	0% { transform: translate(15px,-310px);}
+	40% { transform: translate(15px,-310px);}
+	70% { transform: translate(90px,-500px);}
+	85% { transform: translate(90px,-500px);}
+	100% { transform: translate(15px,-310px);}
+}
+ /* Letter i*/
+.letter_i {
+	position: relative;
+	z-index: 99;
+	width: 200px;
+	top: 530px;
+	left: 0px;
+}
+ /* Letter i*/
+.move2 {
+	width:200px;
+	position:relative;
+    z-index: 90;
+    transform: translate(0,0);
+    animation: moving2 15s ease-in-out 0s infinite;
+    height: 0px;
+}
+ /* Letter i*/
+@keyframes moving2 {
+	0% { transform: translate(65px,-308px);}
+	20% { transform: translate(90px,-500px);}
+	40% { transform: translate(90px,-500px);}
+	60% { transform: translate(65px,-315px);}
+	70% { transform: translate(65px,-308px);}
+	100% { transform: translate(65px,-308px);}
+}
+/* Letter a */
+.letter_a {
+	position: relative;
+	z-index: 99;
+	width: 200px;
+	top: 530px;
+	left: 0px;
+}
+ /* Letter a */
+.move3 {
+	position:relative;
+    z-index: 90;
+    transform: translate(0,0);
+    animation: moving3 15s ease-in-out 0s infinite;
+	width:200px;
+    height: 0px;
+}
+/* Letter a */
+@keyframes moving3 {
+	0% { transform: translate(115px,-308px);}
+	40% { transform: translate(115px,-308px);}
+	70% { transform: translate(140px,-500px);}
+	85% { transform: translate(140px,-500px);}
+	100% { transform: translate(115px,-308px);}
+}
+/* Letter s */
+.letter_s {
+	position: relative;
+	z-index: 99;
+	width: 200px;
+	top: 530px;
+	left: 0px;
+}
+/* Letter s */
+.move4 {
+	position:relative;
+    z-index: 90;
+    transform: translate(0,0);
+    animation: moving4 15s ease-in-out 0s infinite;
+	width:200px;
+    height: 0px;
+}
+/* Letter s */
+@keyframes moving4 {
+	0% { transform: translate(160px,-308px);}
+	30% { transform: translate(160px,-308px);}
+	70% { transform: translate(190px,-500px);}
+	80% { transform: translate(190px,-500px);}
+	100% { transform: translate(160px,-308px);}
+}
+/* Letter e */
+.letter_e {
+	position: relative;
+	z-index: 99;
+	width: 200px;
+	top: 530px;
+	left: 0px;
+}
+/* Letter e */
+.move5{
+	position:relative;
+    z-index: 90;
+    transform: translate(0,0);
+    animation: moving5 15s ease-in-out 0s infinite;
+	width:200px;
+    height: 0px;
+}
+/* Letter e */
+@keyframes moving5 {
+	0% { transform: translate(212px,-308px);}
+	30% { transform: translate(190px,-500px);}
+	40% { transform: translate(190px,-500px);}
+	65% { transform: translate(208px,-315px);}
+	70% { transform: translate(208px,-308px);}
+	100% { transform: translate(212px,-308px);}
+}
+/* Letter c */
+.letter_c {
+	position: relative;
+	z-index: 99;
+	width: 200px;
+	top: 530px;
+	left: 0px;
+}
+ /* Letter c */
+.move6 {
+	position:relative;
+    z-index: 90;
+    transform: translate(0,0);
+    animation: moving6 15s ease-in-out 0s infinite;
+	width:200px;
+    height: 0px;
+}
+@keyframes moving6 {
+	0% { transform: translate(255px,-308px);}
+	30% { transform: translate(140px,-500px);}
+	40% { transform: translate(140px,-500px);}
+	65% { transform: translate(255px,-315px);}
+	70% { transform: translate(255px,-308px);}
+	100% { transform: translate(255px,-308px);}
+}

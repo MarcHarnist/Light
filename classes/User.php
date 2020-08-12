@@ -3,16 +3,18 @@
 *   
 */
 class User {
-  private $id,
-          $firstName,
-          $name,
-          $password,
-		  $r,//score in r
-		  $i,//score in i
-		  $a,//...
-		  $s,
-		  $e,
-		  $c;
+    private $id,
+			$civilite,
+            $firstName,
+            $name,
+            $email,
+            $r,//score in r
+            $i,//score in i
+            $a,//...
+            $s,
+            $e,
+            $c,
+			$profile3letters;
 
   public function __construct(string $firstName = "John", string $name = "Doe", int $id = 1)
   {
@@ -26,6 +28,35 @@ class User {
 	  $this->setE(0);
 	  $this->setC(0);
   }
+/* Function hydrate used by UserManager 2020-08-06
+ *
+ * Very usefull to update last id from db table riasec_users
+ * for example
+ */
+public function hydrate(array $donnees)
+{
+	foreach ($donnees as $key => $value)
+	{
+	  $method = 'set'.ucfirst($key);// if key = id, $method = setId;
+	  
+	  if (method_exists($this, $method)) // si la methode existe elle
+				// est appellée    pour controler la valeur...
+	  {
+		$this->$method($value);
+	  }
+	}
+
+	foreach ($donnees as $key => $value)
+	{
+	  $method = 'add'.ucfirst($key);// if key = id, $method = addId;
+	  
+	  if (method_exists($this, $method))
+	  {
+		$this->$method($value);
+	  }
+	}
+}
+
 
 public function addPointInProfile(string $profileName, int $points = 1)
 {
@@ -56,6 +87,10 @@ public function addPointInProfile(string $profileName, int $points = 1)
   {
     return $this->id;
   }
+  public function getCivilite()
+  {
+	  return $this->civilite;
+  }
   public function getFirstName()
   {
     return $this->firstName;
@@ -64,6 +99,11 @@ public function addPointInProfile(string $profileName, int $points = 1)
   {
     return $this->name;
   } 
+  public function getEmail()
+  {
+    return $this->email;
+  } 
+  
   public function getPassword()
   {
     return $this->password;
@@ -92,6 +132,10 @@ public function addPointInProfile(string $profileName, int $points = 1)
   {
     return $this->c;
   } 
+  public function getProfile3letters()
+  {
+	  return $this->profile3letters;
+  }
 
   // Fin du rajout de Marc
   public function setId($id)
@@ -103,6 +147,10 @@ public function addPointInProfile(string $profileName, int $points = 1)
       $this->id = $id;
     }
   }
+  public function setCivilite(string $civilite)
+  {
+	$this->civilite = is_string($civilite)?$civilite:"";
+  }
   public function setFirstName($firstName)
   {
     if (is_string($firstName)) $this->firstName = $firstName;
@@ -111,9 +159,9 @@ public function addPointInProfile(string $profileName, int $points = 1)
   {
     if (is_string($name)) $this->name = $name;
   }
-  public function setPassword($password)
+  public function setEmail(string $email)
   {
-	  if(is_string($password)) $this->password = $password;
+	  if(is_string($email)) $this->email = $email;
   }
   public function setR($r)
   {
@@ -139,6 +187,10 @@ public function addPointInProfile(string $profileName, int $points = 1)
   {
       $this->c	  = $c;
   }
+  public function setProfile3letters(string $profile3letters)
+  {
+	  $this->profile3letters = $profile3letters;
+  }
   public function __toString()
   {
 	  $repport = 
@@ -162,5 +214,11 @@ public function addPointInProfile(string $profileName, int $points = 1)
 			"conventionnel" => $this->getC()
 	];
 	 return $array;
+  }
+  public function getResultArsort()
+  {
+	$userResults = $this->getResult();//array
+	arsort($userResults);//arsort do not erase the keys
+	return $userResults;//arsort do not erase the keys
   }
 }//Close class Member

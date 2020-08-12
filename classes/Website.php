@@ -44,6 +44,8 @@ class Website {
 */  public function __construct(){ 
 		$this->website_url = WEBSITE_URL;
 		$this->page_url = PAGE_URL;
+		$this->img_url = PUBLIC_PATH."/img/";
+
 	}
 /** message()...............................line  44
 *	Description : permet d'afficher un message en css dans un contrôleur

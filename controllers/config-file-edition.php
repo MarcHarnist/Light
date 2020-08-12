@@ -13,7 +13,7 @@
 	$model_1 = "models/config-file-form-post-treatment.php";//Model that will be used
 	$model_2 = "models/ecrire-dans-un-fichier.php";//Model that will be used
 	$file = "config";
-	$filePath = "config/$file.php";
+	$filePath = CONFIG_PATH;
 	$newContent = "";
 	$level = 1;// Rights to see this page. 1 = webmaster or superAdmin only
 	$methods = new Methods;//Get and store a lot of usefull methods in the var. $methods
