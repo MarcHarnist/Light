@@ -1,15 +1,15 @@
 <header>
-	<h2><?=$page_en_cours_de_lecture['title']?></h2> 
+	<h2><?=isset($currentPage['title'])?$currentPage['title']:print("Erreur, pas de page courante.")?></h2> 
 </header>
 <article>
 	<!-- M.Harnist 07/03/2018 (created 02 octobre 2017 for the pages -->
-	<p><?=$page_en_cours_de_lecture['text'];?></p>
+	<p><?=isset($currentPage['text'])?$currentPage['text']:print("Erreur, pas de page courante.");?></p>
 	<p class="icon">
 		<?php
-		if (isset($editor) && $editor == True){
-			// $editor == True? (see controller) 
-			// The visitor has enough permissions, display the edition-link
-			include_once("view/".'__menu-edition.php');
+		if (isset($editor) && $editor == True && isset($currentPage)){
+			//$editor = True? (see controller) & user has enough permissions to see edition-links
+			$fileMenuPageManager = PUBLIC_PATH.'/inc/menu-page-manager.php';
+			is_file($fileMenuPageManager)?include_once($fileMenuPageManager):print("<i>Menu d'édition introuvable.</i>");
 		}
 		?>
 	</p>

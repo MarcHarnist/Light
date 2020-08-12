@@ -5,33 +5,49 @@
 	<h2>Index des pages de la catégorie "<?=$category;?>"</h2> 
 </header>
 
+<?=1==2?'<p class="m-1">Fichier: ' . __FILE__ .'</p>':''?>
+
 <?php
 // Display the N° (id), the title, the author and the date of the new choosen in a link to this new.
-foreach($pages as $page_en_cours_de_lecture)
-{
-	?>
+foreach($pages as $currentPage): ?>
 	<article>
 		<header>
-			<h3 id="<?=$page_en_cours_de_lecture['id'];?>">
-				<?php echo '<a href="' . $website->page_url . 'page-from-pages-index&amp;id='. $page_en_cours_de_lecture['id'] . '&amp;titre=' . $page_en_cours_de_lecture['url']. '" target="_blank">'.$page_en_cours_de_lecture['title'].'</a>';
-				?>
-				<em><small><small>
-				<?php 
-				if ($editor_display) include("view/".'__menu-edition.php'); ?>
-				<br />
+			<h3 id="<?=$currentPage['id'];?>">
+				<a href="index.php?page=page-from-pages-index
+				&amp;id=<?=$currentPage['id'];?>
+				&amp;titre=<?=$currentPage['url']?>" target="_blank">
+				<?=$currentPage['title']?></a>
+				<span class="ml-3">
+				<em>
+				<small><small>
+				<?php
+				if($editor_display):
+				$fileMenuPageManager = PUBLIC_PATH.'/inc/menu-page-manager.php';
+				is_file($fileMenuPageManager)?require($fileMenuPageManager):print("<i>Menu d'édition introuvable.</i>");
+				endif; ?>
+				<br>
 				<?php if(BLOG_DATE_DISPLAY === "yes"): ?>
-				Le <?=$page_en_cours_de_lecture['date'];?></em> 
+				Le <?=$currentPage['date'];?>
 				<?php endif;?>
 				
-				<?php if(BLOG_AUTHOR_DISPLAY === "yes" && $page_en_cours_de_lecture['author'] != "") echo "Auteur: " . $page_en_cours_de_lecture['author'];?></small></small>
+				<?php if(BLOG_AUTHOR_DISPLAY === "yes" && $currentPage['author'] != "") echo "Auteur: " . $currentPage['author'];?>
+				</small></small>
+				</em>
+				</span>
 			</h3>
 		</header>
 		<section>
-			<?=$page_en_cours_de_lecture['text'];?>
+			<?=$currentPage['text'];?>
 		</section>
-					<?php if($editor_display):?>
-		<p class="icon"><?php include_once("view/".'__menu-edition.php');?></p>
+		<?php if($editor_display):?>
+		<p>
+			<?php 
+			$fileMenuPageManager = PUBLIC_PATH.'/inc/menu-page-manager.php';
+			is_file($fileMenuPageManager)?require($fileMenuPageManager):print("<i>Menu d'édition introuvable.</i>");
+			?>
+		</p>
 					<?php endif; ?>
+		<hr>
 	</article>
 	<?php
-}
+endforeach;

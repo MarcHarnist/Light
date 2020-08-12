@@ -25,23 +25,25 @@ else {
 <article>
 	<h3>Petite erreur :</h3>
 	<?php
-	if(($messager->Red()) != ""){
-		?>	
-		<p class = "messageRed p_pinkButton">
-		<?php echo $messager->Red();?>
-		<br />
-		Mes données ne sont pas perdues:<br />
-		<a href="#" onclick="history.go(-1);">J'y retourne en un clic !</a>
-		</p>
-		<?php
-	}
-	if(($messager->Green()) != ""){
-		?>
-		<p class = "messageGreen">
-			<?php echo $messager->Green();?>
-		</p>
-		<?php
-	}
+	if(isset($messager) && is_object($messager)):
+		if(($messager->getRed()) != ""){
+			?>	
+			<p class = "messageRed p_pinkButton">
+			<?php echo $messager->getRed();?>
+			<br />
+			Mes données ne sont pas perdues:<br />
+			<a href="#" onclick="history.go(-1);">J'y retourne en un clic !</a>
+			</p>
+			<?php
+		}
+		if(($messager->getGreen()) != ""){
+			?>
+			<p class = "messageGreen">
+				<?php echo $messager->getGreen();?>
+			</p>
+			<?php
+		}
+	endif;
 	?>
 </article>
 	<?php

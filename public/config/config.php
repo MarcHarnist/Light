@@ -30,6 +30,7 @@ define('DB_CHARSET', 'utf8');//DB charset to use in database mysql in table crea
 define('TABLE_CLIENT', 'light_clients');//
 define('TABLE_MEMBER', 'light_members');//
 define('TABLE_PAGES', 'light_pages');//
+define('TABLE_STATS', 'light_stats');//
 define('MAX_SIZE', '10000000');//Taille max en octets du fichier classe Website
 define('WIDTH_MAX', '3000');//Largeur max de limage en pixels classe Website
 define('HEIGHT_MAX', '2000');//Hauteur max de limage en pixels
