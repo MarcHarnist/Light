@@ -25,7 +25,7 @@
 	
 <p>Autre article : <a href="index.php?page=page-from-pages-index&amp;id=132&amp;titre=en-savoir-plus-sur-light">En savoir plus sur Light</a></p>
 	</article>
-	<?
+	<?php
 	
 	/** CKEditor bug: the bug appears when you switch to see the code source
 	*   in the page __page-creation.php. CKEditor add <p> </p> at each time
