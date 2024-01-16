@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <h2>Tableau de bord de mon "Easyphp"</h2>
+    <button id="executeMakefile">Exécuter Makefile</button>
+
+    <script>
+        document.getElementById('executeMakefile').addEventListener('click', function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'makefile', true);
+            xhr.send();
+        });
+    </script>
+
+    <p><a href="http://localhost:8000/index.php" target="_blank" title="Open project in localhost for php">Localhost / Php</a></p>
+
+</body>
+</html>

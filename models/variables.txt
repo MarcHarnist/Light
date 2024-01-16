@@ -1,0 +1,31 @@
+
+
+
+
+/** DECOUVERTES IMPORTANTE
+*
+Passer par référence 
+Vous pouvez passer une variable par référence à une fonction afin que la fonction puisse modifier la variable. La syntaxe est la suivante:
+*/
+function foo(&$var)
+{
+    $var++;
+}
+$a=5;
+foo($a); // $a is 6 here
+
+/** DECOUVERTES IMPORTANTE
+*
+Portée des varaibles
+Transformer une variable d'une fonction de locale en globale
+*/
+$compteur = 0;
+function foo2()
+{
+	global $compteur;
+	$compteur++;
+	
+}
+//$compteur = 0 ici
+foo2();
+//$compteur = 1 ici

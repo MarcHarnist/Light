@@ -1,0 +1,46 @@
+.lightColor {background-color: rgba(47,100,148,.5)!important;}
+
+body {background-color:#f8f9fa!important;}
+
+a, header a:hover, footer a:hover {color: rgba(47,100,148,.5)!important;}
+
+/* LOGO MyDataBall special param */
+header figure img {margin-top:13px; margin-left:13px;}
+header, footer {background:lightgrey;}
+body>header figure img {margin-top:13px; margin-left:3px;} /* First header rules */
+body>header a, footer a {color: #fff!important;}
+.subtitle {color: white; font-size:17px; font-style:italic;}/*Website subtitle */
+
+main {min-height:400px; background-color: #f8f9fa!important;}
+main>header { margin-top: 20px !important;}/* First view header rules */
+
+h2, h3, h4, h5, h6, p {background-color:#f8f9fa!important; color: #6c757d!important;}
+
+.textLightColor footer a {color: #fff!important;}
+
+article { margin-left: 20px; background-color: #f8f9fa!important;}
+article h3 {font-style: italic; font-size:1.5em;}
+article header a {color: #6C757D!important; } 
+
+
+.row { margin: 0; padding: 0;}/* Boostrap row */
+
+/* modal exists in Bootstrap framework ! */
+.modalLightCMS { padding:25px; background-color:lightgreen; } /* modal  ~  popup pour messages dans contrôleur */
+
+
+.text-success {color: #94c11f!important;}
+
+/* Bootstrap bg-secondary = #6C757D */
+.page-manager p, p.page-edition {background-color:#6C757D!important;}
+
+
+footer { border-top: 1px solid white !important; padding: 20px 0 50px 0; font-style:italic !important;}
+footer p, footer ul { margin:15px !important;}
+footer i {font-weight:lighter;}
+address { 
+	margin:0 30px !important;
+	font-weight:lighter !important;
+	font-style:italic !important;
+	color:#6c757d!important;
+}

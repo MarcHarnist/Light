@@ -1,0 +1,9 @@
+ErrorDocument 404 http://marcharnist.fr/light/index.php?page=404
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !f
+RewriteRule ^contact$ index.php?page=contact [L]
+RewriteRule ^Mentions-legales$ index.php?page=page-from-pages-index&id=131&categorie=pages&titre=Mentions-légales [L]
+RewriteRule ^connexion$ index.php?page=connexion [L]
+RewriteRule ^admin$ index.php?page=admin [L]
+RewriteRule ^index$ index.php [L]
+RewriteRule ^accueil$ index.php?page=accueil [L]

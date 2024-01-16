@@ -1,0 +1,25 @@
+body {
+	margin:100px auto 20px !important;
+}
+
+.lightColor, body {background-color: lightgrey !important;}
+
+header .row {
+	padding: 0 !important;
+}
+
+.nav, header ul, footer, aside {display:none !important; } /* N'affiche pas le titre et le menu de la page install minimaliste */
+
+figure {margin: -80px 292px 20px !important;}
+.bg-white {background-color:lightgrey !important;}
+
+.container {min-height: 650px; max-width:650px !important; }
+
+header a:hover {color:green;}
+
+.row { margin: 0; padding: 0 }
+
+.textLightColor {color: #ggg!important;}
+
+.text-success {color: #94c11f!important;}
+

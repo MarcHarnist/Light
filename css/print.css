@@ -1,0 +1,15 @@
+@media print {
+
+	.pageBreak {
+		page-break-before: always !important;
+	}
+
+	.not-printed{
+	display:none !important;
+	}
+	  
+	.clearBoth {
+		clear:both;
+	}
+	
+}
